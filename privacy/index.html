@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Prabhaya</title>
+<meta name="description" content="How Prabhaya handles your voice, location, health entries and diagnostics — explained clearly, in Telugu, Hindi and English.">
+<meta name="theme-color" content="#0E2A30">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E2A30'/%3E%3Cpath d='M18 40a14 14 0 0 1 28 0z' fill='%23E8B8B2'/%3E%3Cg stroke='%23D9A13B' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M32 14v7M15 21l5 5M49 21l-5 5M10 34h7M47 34h7'/%3E%3C/g%3E%3Cpath d='M12 44h40' stroke='%235F9EA3' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F1E7; --surface:#FDFAF3; --overlay:#FFFFFF;
+  --ink:#17323A; --ink-soft:#4C646C; --ink-faint:#7A8D93;
+  --teal:#5F9EA3; --forest:#3E7B81; --deep:#0E2A30; --deep2:#143840;
+  --rose:#E8B8B2; --rose-deep:#C9827A; --amber:#D9A13B; --clay:#B85C38;
+  --green:#4E7E52; --blue:#4A7FA5;
+  --line:rgba(23,50,58,.13); --line-soft:rgba(23,50,58,.08);
+  --shadow:0 1px 2px rgba(14,42,48,.05),0 10px 30px -12px rgba(14,42,48,.14);
+  --radius:18px; --nav-h:72px;
+  --font-body:'Public Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-display:'Fraunces',Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-padding-top:calc(var(--nav-h) + 24px)}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+body{
+  font-family:var(--font-body); background:var(--paper); color:var(--ink);
+  line-height:1.7; font-size:16.5px; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+html[lang="te"] body{font-family:'Noto Sans Telugu','Public Sans',system-ui,sans-serif;line-height:1.85}
+html[lang="hi"] body{font-family:'Noto Sans Devanagari','Public Sans',system-ui,sans-serif;line-height:1.8}
+html[lang="te"] .display,html[lang="hi"] .display{font-family:'Noto Sans Telugu','Noto Sans Devanagari',serif;letter-spacing:0}
+::selection{background:var(--rose);color:var(--deep)}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--teal),var(--forest));border-radius:8px;border:3px solid var(--paper)}
+::-webkit-scrollbar-thumb:hover{background:var(--rose-deep)}
+a{color:var(--forest);text-decoration:none}
+a:hover{color:var(--rose-deep)}
+button{font-family:inherit;cursor:pointer}
+.display{font-family:var(--font-display);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- progress bar ---------- */
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;background:transparent}
+.progress span{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--teal),var(--rose-deep),var(--amber))}
+
+/* ---------- skip link ---------- */
+.skip{position:fixed;top:-60px;left:16px;z-index:100;background:var(--deep);color:var(--paper);
+  padding:10px 18px;border-radius:10px;transition:top .2s}
+.skip:focus{top:12px;color:var(--paper)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);
+  display:flex;align-items:center;gap:20px;padding:0 clamp(16px,4vw,44px);
+  background:rgba(246,241,231,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.nav.scrolled{border-bottom-color:var(--line-soft);box-shadow:0 6px 24px -14px rgba(14,42,48,.25)}
+.brand{display:flex;align-items:center;gap:11px;color:var(--ink);flex:none}
+.brand:hover{color:var(--ink)}
+.brand svg{width:38px;height:38px;flex:none}
+.brand-name{font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:.01em}
+.brand-tag{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-faint);
+  border-left:1px solid var(--line);padding-left:11px;margin-left:2px}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{font-size:14px;font-weight:500;color:var(--ink-soft);padding:8px 13px;border-radius:99px;transition:.2s}
+.nav-links a:hover{color:var(--ink);background:rgba(95,158,163,.14)}
+.nav-actions{display:flex;align-items:center;gap:12px;flex:none}
+.lang-toggle{display:flex;background:var(--overlay);border:1px solid var(--line);border-radius:99px;padding:3px;box-shadow:var(--shadow)}
+.lang-toggle button{border:0;background:transparent;padding:6px 13px;border-radius:99px;font-size:13px;font-weight:600;
+  color:var(--ink-soft);transition:.2s;line-height:1.3}
+.lang-toggle button:hover{color:var(--ink)}
+.lang-toggle button.active{background:linear-gradient(135deg,var(--forest),var(--teal));color:#fff;box-shadow:0 3px 10px -3px rgba(62,123,129,.6)}
+.print-btn{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--overlay);
+  color:var(--ink-soft);padding:9px 15px;border-radius:99px;font-size:13.5px;font-weight:600;box-shadow:var(--shadow);transition:.2s}
+.print-btn:hover{color:var(--forest);border-color:var(--teal);transform:translateY(-1px)}
+.print-btn .ic{width:17px;height:17px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--deep);color:#F3EDE2;
+  padding:calc(var(--nav-h) + clamp(56px,9vh,104px)) clamp(16px,5vw,48px) clamp(64px,9vh,110px)}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.aurora{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;mix-blend-mode:screen}
+.a1{width:56vw;height:56vw;left:-14vw;top:-22vw;background:radial-gradient(circle,#5F9EA3,transparent 65%);animation:drift1 26s ease-in-out infinite alternate}
+.a2{width:44vw;height:44vw;right:-10vw;top:-6vw;background:radial-gradient(circle,#C9827A,transparent 65%);opacity:.42;animation:drift2 32s ease-in-out infinite alternate}
+.a3{width:34vw;height:34vw;left:32vw;bottom:-18vw;background:radial-gradient(circle,#D9A13B,transparent 65%);opacity:.28;animation:drift1 38s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate(6vw,4vh) scale(1.12)}}
+@keyframes drift2{to{transform:translate(-5vw,6vh) scale(.92)}}
+.grain{position:absolute;inset:0;opacity:.05;pointer-events:none;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix type="saturate" values="0"/></filter><rect width="160" height="160" filter="url(%23n)"/></svg>')}
+.hero-art{position:absolute;right:clamp(-60px,2vw,80px);top:50%;transform:translateY(-50%);
+  width:clamp(280px,34vw,520px);opacity:.62;pointer-events:none}
+.hero-art .rays{transform-origin:200px 200px;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-inner{position:relative;max-width:1180px;margin:0 auto}
+.hero-inner>*{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-inner>*:nth-child(1){animation-delay:.05s}.hero-inner>*:nth-child(2){animation-delay:.15s}
+.hero-inner>*:nth-child(3){animation-delay:.28s}.hero-inner>*:nth-child(4){animation-delay:.42s}
+.hero-inner>*:nth-child(5){animation-delay:.55s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--rose);border:1px solid rgba(232,184,178,.35);border-radius:99px;
+  padding:8px 16px;background:rgba(232,184,178,.08)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.hero h1{font-size:clamp(44px,7vw,84px);color:#FBF7EE;margin:26px 0 20px;max-width:14ch}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--rose),var(--amber));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .lede{max-width:620px;font-size:clamp(16px,1.6vw,19px);color:#C4D4D6;font-weight:400}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pill{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#EAF2F2;
+  border:1px solid rgba(95,158,163,.4);background:rgba(95,158,163,.14);padding:9px 16px;border-radius:99px}
+.pill .ic{width:15px;height:15px;color:var(--rose)}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;margin-top:36px;font-weight:600;font-size:15px;
+  color:var(--deep);background:linear-gradient(120deg,var(--rose),#F0CFC9);padding:14px 26px;border-radius:99px;
+  box-shadow:0 12px 30px -10px rgba(232,184,178,.45);transition:.25s}
+.hero-cta:hover{transform:translateY(-2px);color:var(--deep);box-shadow:0 18px 36px -10px rgba(232,184,178,.55)}
+.hero-cta .ic{width:17px;height:17px}
+
+/* ---------- glance strip ---------- */
+.glance{max-width:1180px;margin:-34px auto 0;padding:0 clamp(16px,5vw,48px);position:relative;z-index:5}
+.glance-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.g-card{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);
+  padding:24px 22px;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
+.g-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px -14px rgba(14,42,48,.22)}
+.g-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:15px;color:#fff}
+.g-card:nth-child(1) .g-icon{background:linear-gradient(135deg,var(--forest),var(--teal))}
+.g-card:nth-child(2) .g-icon{background:linear-gradient(135deg,var(--rose-deep),var(--rose))}
+.g-card:nth-child(3) .g-icon{background:linear-gradient(135deg,#B07E22,var(--amber))}
+.g-card:nth-child(4) .g-icon{background:linear-gradient(135deg,var(--blue),#7AA8C4)}
+.g-card h3{font-size:16.5px;font-weight:700;margin-bottom:6px}
+.g-card p{font-size:13.8px;color:var(--ink-soft);line-height:1.6}
+
+/* ---------- layout ---------- */
+.layout{max-width:1180px;margin:clamp(48px,7vh,84px) auto 0;padding:0 clamp(16px,5vw,48px);
+  display:grid;grid-template-columns:250px minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start}
+.toc-aside{position:sticky;top:calc(var(--nav-h) + 28px)}
+.toc-title{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-faint);margin-bottom:14px}
+.toc-aside nav{display:flex;flex-direction:column;gap:2px;border-left:2px solid var(--line-soft)}
+.toc-aside a{position:relative;font-size:13.8px;font-weight:500;color:var(--ink-soft);padding:7px 0 7px 16px;transition:.2s;line-height:1.45}
+.toc-aside a::before{content:"";position:absolute;left:-2px;top:0;bottom:0;width:2px;background:var(--rose-deep);
+  transform:scaleY(0);transition:transform .25s}
+.toc-aside a:hover{color:var(--ink)}
+.toc-aside a.active{color:var(--rose-deep);font-weight:700}
+.toc-aside a.active::before{transform:scaleY(1)}
+.toc-meta{margin-top:22px;padding:16px 18px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:14px;font-size:12.5px;color:var(--ink-faint);line-height:1.6}
+.toc-meta strong{display:block;color:var(--ink-soft);font-size:12.5px;margin-bottom:2px}
+.toc-mobile{display:none}
+
+/* ---------- article sections ---------- */
+article{min-width:0}
+.policy-section{padding:34px 0 38px;border-bottom:1px solid var(--line-soft);scroll-margin-top:calc(var(--nav-h) + 24px)}
+.policy-section:first-child{padding-top:8px}
+.policy-section:last-child{border-bottom:0}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:18px}
+.num{font-family:var(--font-display);font-size:14px;font-weight:700;color:#fff;flex:none;
+  width:38px;height:38px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;transform:translateY(4px)}
+.policy-section:nth-child(6n+1) .num{background:linear-gradient(135deg,var(--forest),var(--teal))}
+.policy-section:nth-child(6n+2) .num{background:linear-gradient(135deg,var(--rose-deep),#D89A92)}
+.policy-section:nth-child(6n+3) .num{background:linear-gradient(135deg,#B07E22,var(--amber))}
+.policy-section:nth-child(6n+4) .num{background:linear-gradient(135deg,var(--blue),#7AA8C4)}
+.policy-section:nth-child(6n+5) .num{background:linear-gradient(135deg,var(--green),#6FA072)}
+.policy-section:nth-child(6n+6) .num{background:linear-gradient(135deg,var(--clay),#D07A52)}
+.policy-section h2{font-size:clamp(24px,2.6vw,31px);color:var(--ink)}
+.policy-section p{color:var(--ink-soft);margin-bottom:14px;max-width:72ch}
+.policy-section p strong{color:var(--ink)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- data table ---------- */
+.table-wrap{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin:20px 0 8px;background:var(--surface)}
+.table-scroll{overflow-x:auto}
+.table-scroll::-webkit-scrollbar{height:8px}
+.table-scroll::-webkit-scrollbar-thumb{border-width:2px}
+table{width:100%;border-collapse:collapse;min-width:700px;font-size:14px}
+thead th{background:linear-gradient(135deg,var(--deep),var(--deep2));color:#EAF2F2;text-align:left;
+  font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:15px 18px}
+tbody td{padding:16px 18px;vertical-align:top;color:var(--ink-soft);border-top:1px solid var(--line-soft);line-height:1.6}
+tbody tr:nth-child(even){background:rgba(95,158,163,.06)}
+tbody td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+.badge{display:inline-block;font-size:12.3px;font-weight:600;padding:5px 12px;border-radius:12px;line-height:1.45}
+.b-voice{background:rgba(201,130,122,.16);color:#A45A51}
+.b-cloud{background:rgba(74,127,165,.14);color:#3C6B8C}
+.b-never{background:rgba(78,126,82,.14);color:#3E6B42}
+.b-opt{background:rgba(217,161,59,.18);color:#8F6817}
+
+/* ---------- check list ---------- */
+.check-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin:6px 0 16px}
+.check-list li{display:flex;gap:13px;align-items:flex-start;color:var(--ink-soft);max-width:72ch}
+.check-list .ic{width:20px;height:20px;color:var(--green);margin-top:3px}
+.closing-line{font-weight:700;color:var(--ink);border-left:3px solid var(--rose-deep);padding-left:16px}
+
+/* ---------- permission cards ---------- */
+.perm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:18px 0}
+.perm-card{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow)}
+.perm-card .g-icon{margin-bottom:14px}
+.perm-card:nth-child(1) .g-icon{background:linear-gradient(135deg,var(--rose-deep),var(--rose))}
+.perm-card:nth-child(2) .g-icon{background:linear-gradient(135deg,var(--forest),var(--teal))}
+.perm-card:nth-child(3) .g-icon{background:linear-gradient(135deg,var(--blue),#7AA8C4)}
+.perm-card h3{font-size:16px;font-weight:700;margin-bottom:7px}
+.perm-card p{font-size:13.8px;margin:0;line-height:1.65}
+.note-box{display:flex;gap:12px;align-items:flex-start;background:rgba(217,161,59,.12);border:1px solid rgba(217,161,59,.35);
+  border-radius:14px;padding:15px 18px;font-size:13.8px;color:#7A5B14;margin-top:6px;max-width:78ch}
+.note-box .ic{width:19px;height:19px;color:var(--amber);margin-top:2px}
+.note-box code{font-family:ui-monospace,'SF Mono',Consolas,monospace;font-size:12.5px;background:rgba(217,161,59,.18);padding:2px 7px;border-radius:6px}
+
+/* ---------- third parties ---------- */
+.tp-list{display:flex;flex-direction:column;gap:12px;margin:16px 0}
+.tp-row{display:flex;align-items:center;gap:18px;background:var(--surface);border:1px solid var(--line-soft);
+  border-radius:16px;padding:18px 22px;box-shadow:var(--shadow);transition:transform .2s}
+.tp-row:hover{transform:translateX(4px)}
+.tp-name{flex:none;width:190px;font-weight:700;font-size:15px;color:var(--ink);display:flex;align-items:center;gap:10px}
+.tp-name .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.tp-row:nth-child(1) .dot{background:var(--green)}.tp-row:nth-child(2) .dot{background:var(--blue)}
+.tp-row:nth-child(3) .dot{background:var(--amber)}.tp-row:nth-child(4) .dot{background:var(--rose-deep)}
+.tp-row:nth-child(5) .dot{background:var(--teal)}
+.tp-desc{flex:1;font-size:13.8px;color:var(--ink-soft);line-height:1.6}
+.tp-link{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:12.8px;font-weight:600;color:var(--forest);
+  border:1px solid var(--line);border-radius:99px;padding:7px 14px;transition:.2s;background:var(--overlay)}
+.tp-link:hover{border-color:var(--teal);color:var(--forest);background:rgba(95,158,163,.1)}
+.tp-link .ic{width:13px;height:13px}
+
+/* ---------- rights ---------- */
+.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.right-card{display:flex;gap:15px;background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;padding:20px;box-shadow:var(--shadow)}
+.right-card .g-icon{width:38px;height:38px;border-radius:11px;margin:0;flex:none;background:linear-gradient(135deg,var(--green),#6FA072)}
+.right-card h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.right-card p{font-size:13.5px;margin:0;line-height:1.6}
+.dpdp{font-size:13px;color:var(--ink-faint);display:flex;align-items:center;gap:9px;margin-top:14px}
+.dpdp .ic{width:16px;height:16px;color:var(--teal)}
+
+/* ---------- contact ---------- */
+.contact-card{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--deep),var(--deep2));
+  border-radius:22px;padding:clamp(28px,4vw,44px);color:#DCE8EA;margin-top:8px}
+.contact-card::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:-90px;top:-110px;
+  background:radial-gradient(circle,rgba(232,184,178,.28),transparent 65%);pointer-events:none}
+.contact-card p{color:#B9CCCF;max-width:56ch}
+.contact-btn{position:relative;display:inline-flex;align-items:center;gap:10px;margin:20px 0 16px;font-weight:700;font-size:15px;
+  color:var(--deep);background:linear-gradient(120deg,var(--rose),#F0CFC9);padding:14px 28px;border-radius:99px;transition:.25s;
+  box-shadow:0 12px 28px -10px rgba(232,184,178,.4)}
+.contact-btn:hover{transform:translateY(-2px);color:var(--deep)}
+.contact-btn .ic{width:17px;height:17px}
+.contact-note{font-size:13px;color:#8FA6AB;max-width:56ch}
+
+/* ---------- footer ---------- */
+footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padding:44px clamp(16px,5vw,48px) 40px}
+.foot-inner{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+.foot-brand{display:flex;align-items:center;gap:12px;color:#EAF2F2}
+.foot-brand svg{width:34px;height:34px}
+.foot-brand .brand-name{font-size:19px}
+.foot-tag{font-size:13.5px;color:#8FA6AB;width:100%;margin-top:2px}
+.foot-meta{margin-left:auto;text-align:right;font-size:12.8px;line-height:1.7}
+.foot-top{display:inline-flex;align-items:center;gap:7px;color:var(--rose);font-weight:600;font-size:13px}
+.foot-top:hover{color:var(--amber)}
+.foot-top .ic{width:15px;height:15px}
+
+/* ---------- to top ---------- */
+.to-top{position:fixed;right:22px;bottom:22px;z-index:40;width:48px;height:48px;border-radius:50%;
+  border:0;background:linear-gradient(135deg,var(--forest),var(--teal));color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 26px -8px rgba(62,123,129,.55);opacity:0;transform:translateY(14px);pointer-events:none;transition:.3s}
+.to-top.show{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{transform:translateY(-3px)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .layout{grid-template-columns:1fr}
+  .toc-aside{display:none}
+  .toc-mobile{display:block;margin-bottom:26px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  .toc-mobile summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;
+    padding:15px 20px;font-weight:700;font-size:14px;color:var(--ink)}
+  .toc-mobile summary::-webkit-details-marker{display:none}
+  .toc-mobile summary::after{content:"";width:9px;height:9px;border-right:2px solid var(--forest);border-bottom:2px solid var(--forest);
+    transform:rotate(45deg);transition:.25s;margin-right:4px}
+  .toc-mobile[open] summary::after{transform:rotate(-135deg)}
+  .toc-mobile-links{display:flex;flex-direction:column;padding:4px 20px 16px;gap:2px}
+  .toc-mobile-links a{font-size:14px;color:var(--ink-soft);padding:7px 0;border-top:1px solid var(--line-soft)}
+  .toc-mobile-links a.active{color:var(--rose-deep);font-weight:700}
+  .nav-links{display:none}
+}
+@media (max-width:880px){
+  .glance-grid{grid-template-columns:1fr 1fr}
+  .perm-grid{grid-template-columns:1fr}
+  .rights-grid{grid-template-columns:1fr}
+  .hero-art{opacity:.22;right:-80px}
+  .tp-row{flex-wrap:wrap}
+  .tp-name{width:100%}
+  .tp-desc{flex-basis:100%;order:3}
+  .tp-link{margin-left:auto}
+}
+@media (max-width:720px){
+  body{font-size:15.5px}
+  .brand-tag{display:none}
+  .print-btn span{display:none}
+  .print-btn{padding:9px 11px}
+  .lang-toggle button{padding:6px 10px;font-size:12.5px}
+  .nav{gap:10px;padding:0 14px}
+  .nav-actions{margin-left:auto;gap:8px}
+  table{min-width:0}
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table,tbody,tr,td{display:block;width:100%}
+  tbody tr{border-top:1px solid var(--line);padding:8px 0}
+  tbody tr:first-child{border-top:0}
+  tbody td{border-top:0;padding:8px 18px}
+  tbody td::before{content:attr(data-label);display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--ink-faint);margin-bottom:3px}
+  tbody td:first-child{white-space:normal;font-size:15.5px;padding-top:12px}
+  tbody td:first-child::before{display:none}
+  tbody td:last-child{padding-bottom:14px}
+  .foot-meta{margin-left:0;text-align:left}
+}
+@media (max-width:520px){
+  .glance-grid{grid-template-columns:1fr}
+  .hero-pills{gap:8px}
+  .pill{font-size:12.5px;padding:8px 13px}
+  .sec-head{gap:12px}
+  .num{width:32px;height:32px;border-radius:10px;font-size:12.5px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  .reveal{opacity:1;transform:none}
+  .hero-inner>*{opacity:1}
+}
+
+/* ---------- print ---------- */
+@media print{
+  @page{margin:1.8cm}
+  body{background:#fff;font-size:11.5pt;line-height:1.6}
+  .nav,.progress,.skip,.toc-aside,.toc-mobile,.to-top,.hero-cta,.hero-art,.hero-bg,.glance,.contact-btn,.foot-top,.lang-toggle{display:none !important}
+  .hero{background:#fff;color:#000;padding:0 0 18px}
+  .hero h1{color:#000;font-size:26pt}
+  .hero h1 em{-webkit-text-fill-color:#000;background:none}
+  .hero .lede{color:#333}
+  .eyebrow{border-color:#999;color:#333}
+  .hero-pills{display:none}
+  .hero-inner>*{opacity:1;animation:none}
+  .layout{display:block;margin:0;max-width:none}
+  .policy-section{border-bottom:1px solid #ccc;padding:16px 0;break-inside:avoid-page}
+  .reveal{opacity:1;transform:none}
+  .g-card,.perm-card,.tp-row,.right-card,.table-wrap,.contact-card{box-shadow:none;border:1px solid #bbb;background:#fff;color:#000}
+  .contact-card p,.contact-note{color:#333}
+  .contact-card::before{display:none}
+  thead th{background:#eee;color:#000}
+  tbody td{color:#333}
+  footer{background:#fff;color:#333;margin-top:24px;padding:16px 0}
+  .foot-brand{color:#000}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoTile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3E7B81"/><stop offset="1" stop-color="#5F9EA3"/>
+    </linearGradient>
+    <linearGradient id="logoSun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E8B8B2"/><stop offset="1" stop-color="#D9A13B"/>
+    </linearGradient>
+  </defs>
+  <symbol id="i-logo" viewBox="0 0 64 64">
+    <rect width="64" height="64" rx="15" fill="url(#logoTile)"/>
+    <path d="M18 40a14 14 0 0 1 28 0z" fill="url(#logoSun)"/>
+    <g stroke="#F6F1E7" stroke-width="3" stroke-linecap="round" opacity=".9">
+      <path d="M32 13v7M15 20l5 5M49 20l-5 5M9 33h8M47 33h8"/>
+    </g>
+    <path d="M12 44h40" stroke="#F6F1E7" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+    <path d="M18 50h28" stroke="#F6F1E7" stroke-width="2.4" stroke-linecap="round" opacity=".4"/>
+  </symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><rect x="10.5" y="10.5" width="3" height="3"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1-3.5 4-5.5 7.5-5.5s6.5 2 7.5 5.5"/></symbol>
+  <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10v1a7 7 0 0 0 14 0v-1M12 18v4M8 22h8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7.5-5.8-7.5-11.3a7.5 7.5 0 0 1 15 0c0 5.5-7.5 11.3-7.5 11.3z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14.5 14.5 0 0 1 0 18M12 3a14.5 14.5 0 0 0 0 18"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5"/><rect x="3" y="8" width="18" height="9" rx="2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4L10.5 13.5"/><path d="M19 13.5V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5.5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5L19.5 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l7.5 3v5.6c0 4.6-3.2 7.9-7.5 9.4-4.3-1.5-7.5-4.8-7.5-9.4V5.5l7.5-3z"/><path d="M8.8 11.8l2.3 2.3 4.2-4.2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9.5" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9.5 7V4h5v3M6.5 7l1 13.5h9l1-13.5"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5S3.8 15.6 2.3 10.6A5.2 5.2 0 0 1 12 6.7a5.2 5.2 0 0 1 9.7 3.9c-1.5 5-9.7 9.9-9.7 9.9z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.8a8.3 8.3 0 0 1-8.3 8.3c-1.5 0-3-.4-4.2-1.1L3 20.5l1.5-5.4a8.3 8.3 0 1 1 16.5-3.3z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 2.5h7l5 5v14H7z"/><path d="M14 2.5v5h5M10 12h5M10 16h5"/></symbol>
+</svg>
+
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+<a class="skip" href="#overview" data-i18n="misc.skip">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="../" aria-label="Prabhaya — home">
+    <svg aria-hidden="true"><use href="#i-logo"/></svg>
+    <span class="brand-name">Prabhaya</span>
+    <span class="brand-tag" data-i18n="brand.tag">Privacy Policy</span>
+  </a>
+  <nav class="nav-links" aria-label="Sections">
+    <a href="#overview" data-i18n="nav.overview">Overview</a>
+    <a href="#data" data-i18n="nav.data">Your data</a>
+    <a href="#permissions" data-i18n="nav.permissions">Permissions</a>
+    <a href="#rights" data-i18n="nav.rights">Your choices</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" data-lang="en" class="active" aria-pressed="true">EN</button>
+      <button type="button" data-lang="te" aria-pressed="false">తెలుగు</button>
+      <button type="button" data-lang="hi" aria-pressed="false">हिन्दी</button>
+    </div>
+    <button type="button" class="print-btn" id="printBtn" data-i18n-title="nav.print" title="Print / Save PDF">
+      <svg class="ic" aria-hidden="true"><use href="#i-print"/></svg><span data-i18n="nav.print">Print / Save PDF</span>
+    </button>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div><div class="grain"></div>
+  </div>
+  <svg class="hero-art" viewBox="0 0 400 400" aria-hidden="true">
+    <defs>
+      <radialGradient id="heroSun" cx=".5" cy=".45" r=".6">
+        <stop offset="0" stop-color="#F0CFC9"/><stop offset=".6" stop-color="#E8B8B2"/><stop offset="1" stop-color="#C9827A"/>
+      </radialGradient>
+    </defs>
+    <g class="rays" stroke="#D9A13B" stroke-width="3" stroke-linecap="round" opacity=".8">
+      <path d="M200 52v34M200 314v34M52 200h34M314 200h34M95 95l24 24M281 281l24 24M305 95l-24 24M119 281l-24 24"/>
+      <path d="M200 92v18M200 290v18M92 200h18M290 200h18M124 124l13 13M263 263l13 13M276 124l-13 13M137 263l-13 13" opacity=".55"/>
+    </g>
+    <circle cx="200" cy="200" r="86" fill="url(#heroSun)" opacity=".9"/>
+    <circle cx="200" cy="200" r="86" fill="none" stroke="#F6F1E7" stroke-width="2" opacity=".5"/>
+    <path d="M114 200a86 86 0 0 1 172 0" fill="none" stroke="#F6F1E7" stroke-width="2" opacity=".6"/>
+  </svg>
+  <div class="hero-inner">
+    <span class="eyebrow" data-i18n="hero.eyebrow">Effective 10 November 2026 · Version 1.0</span>
+    <h1 class="display"><span data-i18n="hero.titleA">Your trust,</span><br><em data-i18n="hero.titleB">in plain language.</em></h1>
+    <p class="lede" data-i18n="hero.lede">Prabhaya helps rural families find government schemes, health guidance and nearby services — in Telugu, Hindi and English. This page explains exactly what data the app touches, where it goes, and the control you have over it.</p>
+    <div class="hero-pills">
+      <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg><span data-i18n="hero.pill1">No ads</span></span>
+      <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="hero.pill2">No data selling</span></span>
+      <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-chip"/></svg><span data-i18n="hero.pill3">On-device first</span></span>
+      <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span data-i18n="hero.pill4">No account needed</span></span>
+    </div>
+    <a class="hero-cta" href="#overview"><span data-i18n="hero.cta">Read the policy</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
+  </div>
+</section>
+
+<div class="glance">
+  <div class="glance-grid">
+    <div class="g-card reveal">
+      <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-chip"/></svg></div>
+      <h3 data-i18n="glance.g1t">On-device first</h3>
+      <p data-i18n="glance.g1d">Speech, translation and scheme matching run on your phone whenever possible.</p>
+    </div>
+    <div class="g-card reveal">
+      <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></div>
+      <h3 data-i18n="glance.g2t">No account, ever</h3>
+      <p data-i18n="glance.g2d">Every feature works without signing up. We never ask for your name, phone number or address.</p>
+    </div>
+    <div class="g-card reveal">
+      <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg></div>
+      <h3 data-i18n="glance.g3t">No ads, no trackers</h3>
+      <p data-i18n="glance.g3d">Prabhaya has no advertising and no third-party analytics SDKs.</p>
+    </div>
+    <div class="g-card reveal">
+      <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg></div>
+      <h3 data-i18n="glance.g4t">Diagnostics are optional</h3>
+      <p data-i18n="glance.g4d">Anonymous usage data stays off until you opt in — and you can opt out anytime in Profile.</p>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="toc-aside">
+    <p class="toc-title" data-i18n="toc.title">On this page</p>
+    <nav id="tocNav" aria-label="Table of contents">
+      <a href="#overview" data-i18n="s1.title">Overview</a>
+      <a href="#data" data-i18n="s2.title">What we collect</a>
+      <a href="#use" data-i18n="s3.title">How we use it</a>
+      <a href="#permissions" data-i18n="s4.title">Permissions</a>
+      <a href="#third-parties" data-i18n="s5.title">Third-party services</a>
+      <a href="#diagnostics" data-i18n="s6.title">Diagnostics, in detail</a>
+      <a href="#storage" data-i18n="s7.title">Storage &amp; security</a>
+      <a href="#rights" data-i18n="s8.title">Your rights &amp; choices</a>
+      <a href="#children" data-i18n="s9.title">Children's privacy</a>
+      <a href="#changes" data-i18n="s10.title">Changes to this policy</a>
+      <a href="#contact" data-i18n="s11.title">Contact us</a>
+    </nav>
+    <div class="toc-meta">
+      <strong data-i18n="toc.metaT">Prabhaya for Android</strong>
+      <span data-i18n="toc.metaD">Free · Telugu / Hindi / English · No ads</span>
+    </div>
+  </aside>
+
+  <article id="content">
+    <details class="toc-mobile" id="tocMobile">
+      <summary data-i18n="toc.title">On this page</summary>
+      <div class="toc-mobile-links">
+        <a href="#overview" data-i18n="s1.title">Overview</a>
+        <a href="#data" data-i18n="s2.title">What we collect</a>
+        <a href="#use" data-i18n="s3.title">How we use it</a>
+        <a href="#permissions" data-i18n="s4.title">Permissions</a>
+        <a href="#third-parties" data-i18n="s5.title">Third-party services</a>
+        <a href="#diagnostics" data-i18n="s6.title">Diagnostics, in detail</a>
+        <a href="#storage" data-i18n="s7.title">Storage &amp; security</a>
+        <a href="#rights" data-i18n="s8.title">Your rights &amp; choices</a>
+        <a href="#children" data-i18n="s9.title">Children's privacy</a>
+        <a href="#changes" data-i18n="s10.title">Changes to this policy</a>
+        <a href="#contact" data-i18n="s11.title">Contact us</a>
+      </div>
+    </details>
+
+    <section class="policy-section reveal" id="overview">
+      <div class="sec-head"><span class="num">01</span><h2 class="display" data-i18n="s1.title">Overview</h2></div>
+      <p data-i18n="s1.p1">Prabhaya (“the app”, “we”) is a free digital-awareness app built for Telugu-speaking communities, with a focus on Telangana. It helps you find government schemes, vaccination and nutrition guidance, period care, finance awareness and nearby services.</p>
+      <p data-i18n="s1.p2">Our promise in plain language: collect as little as possible, process on your device when we can, and be explicit about the few times data leaves your phone. This policy is available in English, Telugu and Hindi; if the versions ever differ, the English version prevails.</p>
+    </section>
+
+    <section class="policy-section reveal" id="data">
+      <div class="sec-head"><span class="num">02</span><h2 class="display" data-i18n="s2.title">What we collect</h2></div>
+      <p data-i18n="s2.intro">Nothing is collected silently. Here is every category of data the app touches, and exactly where it goes.</p>
+      <div class="table-wrap"><div class="table-scroll">
+        <table id="dataTable">
+          <thead><tr>
+            <th data-i18n="s2.th1">Data</th>
+            <th data-i18n="s2.th2">Why it's needed</th>
+            <th data-i18n="s2.th3">Where it's processed</th>
+            <th data-i18n="s2.th4">Leaves your phone?</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td data-i18n="s2.r1c1">Voice (microphone)</td>
+              <td data-i18n="s2.r1c2">Turn your speech into text for hands-free questions</td>
+              <td data-i18n="s2.r1c3">Android's speech recognition; the service may process audio on Google's servers while listening</td>
+              <td><span class="badge b-voice" data-i18n="s2.r1c4">Only during a voice session — we never record or store it</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="s2.r2c1">Chat questions</td>
+              <td data-i18n="s2.r2c2">Match you to schemes and generate answers</td>
+              <td data-i18n="s2.r2c3">On-device scheme engine; when cloud answers are on, your question and recent chat context go to OpenAI over HTTPS</td>
+              <td><span class="badge b-cloud" data-i18n="s2.r2c4">Only when cloud answers are used</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="s2.r3c1">Location</td>
+              <td data-i18n="s2.r3c2">Find nearby hospitals and services; open directions in Maps</td>
+              <td data-i18n="s2.r3c3">On your device; passed to Google Maps only when you tap a directions link</td>
+              <td><span class="badge b-never" data-i18n="s2.r3c4">Never to our servers</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="s2.r4c1">Health entries &amp; preferences</td>
+              <td data-i18n="s2.r4c2">Remember doses, cycles and settings you mark</td>
+              <td data-i18n="s2.r4c3">Stored only in your phone's private app storage</td>
+              <td><span class="badge b-never" data-i18n="s2.r4c4">Never</span></td>
+            </tr>
+            <tr>
+              <td data-i18n="s2.r5c1">Usage diagnostics (optional)</td>
+              <td data-i18n="s2.r5c2">Improve answer quality and fix failures</td>
+              <td data-i18n="s2.r5c3">Pseudonymous events on our research server — message text is never sent</td>
+              <td><span class="badge b-opt" data-i18n="s2.r5c4">Only if you opt in</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div></div>
+    </section>
+
+    <section class="policy-section reveal" id="use">
+      <div class="sec-head"><span class="num">03</span><h2 class="display" data-i18n="s3.title">How we use information</h2></div>
+      <ul class="check-list">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="s3.b1">Answer your questions and match you to government schemes you may be eligible for.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="s3.b2">Show nearby facilities and open maps when you ask for directions.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="s3.b3">Read answers aloud in your chosen language.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="s3.b4">Remember your language, tracker entries and settings between visits.</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="s3.b5">If you opt in to diagnostics, understand which features help most and fix what fails.</span></li>
+      </ul>
+      <p class="closing-line" data-i18n="s3.closing">We do not sell data, show ads, or build marketing profiles. Ever.</p>
+    </section>
+
+    <section class="policy-section reveal" id="permissions">
+      <div class="sec-head"><span class="num">04</span><h2 class="display" data-i18n="s4.title">Permissions</h2></div>
+      <p data-i18n="s4.intro">The app asks for three permissions. Each is tied to a feature you choose to use, and each can be denied.</p>
+      <div class="perm-grid">
+        <div class="perm-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg></div>
+          <h3 data-i18n="s4.p1t">Microphone</h3>
+          <p data-i18n="s4.p1d">Used only while you hold a voice session to ask questions aloud. Deny it and typing works as normal.</p>
+        </div>
+        <div class="perm-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg></div>
+          <h3 data-i18n="s4.p2t">Location</h3>
+          <p data-i18n="s4.p2d">Used only for Nearby help and health directions. Deny it and you can enter your location manually.</p>
+        </div>
+        <div class="perm-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></div>
+          <h3 data-i18n="s4.p3t">Internet &amp; network state</h3>
+          <p data-i18n="s4.p3d">Downloads optional translation models, reaches cloud answers when enabled, and checks connectivity. Core scheme matching works fully offline.</p>
+        </div>
+      </div>
+      <div class="note-box">
+        <svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>
+        <span data-i18n="s4.note">Change any permission anytime: <code>Android Settings → Apps → Prabhaya → Permissions</code>.</span>
+      </div>
+    </section>
+
+    <section class="policy-section reveal" id="third-parties">
+      <div class="sec-head"><span class="num">05</span><h2 class="display" data-i18n="s5.title">Third-party services</h2></div>
+      <p data-i18n="s5.intro">Some features rely on trusted providers. When they do, your data is handled under that provider's own policy:</p>
+      <div class="tp-list">
+        <div class="tp-row">
+          <span class="tp-name"><span class="dot"></span>OpenAI</span>
+          <span class="tp-desc" data-i18n="s5.t1d">Cloud chat answers and question embeddings, only when cloud mode is on. Your question and a short window of recent chat are sent over HTTPS.</span>
+          <a class="tp-link" href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+        </div>
+        <div class="tp-row">
+          <span class="tp-name"><span class="dot"></span>Google ML Kit</span>
+          <span class="tp-desc" data-i18n="s5.t2d">On-device Telugu ↔ English translation. Models download once; translation then runs offline on your phone.</span>
+          <a class="tp-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+        </div>
+        <div class="tp-row">
+          <span class="tp-name"><span class="dot"></span>Android Speech &amp; TTS</span>
+          <span class="tp-desc" data-i18n="s5.t3d">Voice input and read-aloud answers through the Android system's speech services.</span>
+          <a class="tp-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+        </div>
+        <div class="tp-row">
+          <span class="tp-name"><span class="dot"></span>Google Play services</span>
+          <span class="tp-desc" data-i18n="s5.t4d">Device location for nearby search, processed on your device.</span>
+          <a class="tp-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+        </div>
+        <div class="tp-row">
+          <span class="tp-name"><span class="dot"></span>Google Maps</span>
+          <span class="tp-desc" data-i18n="s5.t5d">Opened only when you tap a directions link; your chosen location is passed to Maps.</span>
+          <a class="tp-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+        </div>
+      </div>
+      <p data-i18n="s5.note"><strong>Your health entries and app preferences are never sent to any of these services.</strong></p>
+    </section>
+
+    <section class="policy-section reveal" id="diagnostics">
+      <div class="sec-head"><span class="num">06</span><h2 class="display" data-i18n="s6.title">Diagnostics, in detail</h2></div>
+      <p data-i18n="s6.p1">If — and only if — you opt in during onboarding or later in Profile, the app sends pseudonymous usage events to our research server so we can improve answer quality.</p>
+      <p data-i18n="s6.p2">An event contains: a random installation ID (not your name or number), a session ID, the event type, your language, app version, Android version, and — for messages — a one-way SHA-256 hash plus character count. <strong>The message text itself never leaves your phone.</strong></p>
+      <p data-i18n="s6.p3">Journey events are kept for about 18 months and then purged; anonymous aggregate counts may be kept longer. Turning diagnostics off in Profile stops collection immediately and deletes the unsent queue on your phone. To delete data already on the server, contact us below.</p>
+    </section>
+
+    <section class="policy-section reveal" id="storage">
+      <div class="sec-head"><span class="num">07</span><h2 class="display" data-i18n="s7.title">Storage &amp; security</h2></div>
+      <p data-i18n="s7.p1">Tracker entries, preferences and chat history live in your phone's private app storage. All network requests use HTTPS, keys you add are kept in the app's secure key store, and diagnostics travel under a bearer token. No system is perfect — so we deliberately keep very little that could ever be exposed.</p>
+    </section>
+
+    <section class="policy-section reveal" id="rights">
+      <div class="sec-head"><span class="num">08</span><h2 class="display" data-i18n="s8.title">Your rights &amp; choices</h2></div>
+      <p data-i18n="s8.intro">You stay in control of every piece of data:</p>
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg></div>
+          <div><h3 data-i18n="s8.r1t">Access &amp; delete local data</h3><p data-i18n="s8.r1d">Everything on your phone is yours. Clear it via Settings → Apps → Prabhaya → Storage → Clear storage, or simply uninstall.</p></div>
+        </div>
+        <div class="right-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-chart"/></svg></div>
+          <div><h3 data-i18n="s8.r2t">Withdraw consent</h3><p data-i18n="s8.r2d">Turn diagnostics off in Profile anytime; the unsent local queue is purged on the spot.</p></div>
+        </div>
+        <div class="right-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></div>
+          <div><h3 data-i18n="s8.r3t">Revoke permissions</h3><p data-i18n="s8.r3d">Deny microphone or location without losing core features — typing and manual location always work.</p></div>
+        </div>
+        <div class="right-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg></div>
+          <div><h3 data-i18n="s8.r4t">Server-side deletion</h3><p data-i18n="s8.r4d">Ask us to delete diagnostics tied to your installation. We confirm within 30 days.</p></div>
+        </div>
+        <div class="right-card">
+          <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg></div>
+          <div><h3 data-i18n="s8.r5t">Raise a concern</h3><p data-i18n="s8.r5d">Think your data was misused? Contact us first — we will investigate and make it right.</p></div>
+        </div>
+      </div>
+      <p class="dpdp"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="s8.dpdp">These choices reflect the rights in India's Digital Personal Data Protection Act, 2023.</span></p>
+    </section>
+
+    <section class="policy-section reveal" id="children">
+      <div class="sec-head"><span class="num">09</span><h2 class="display" data-i18n="s9.title">Children's privacy</h2></div>
+      <p data-i18n="s9.p1">Prabhaya is a general-audience app and is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has provided data through the app, contact us and we will delete it.</p>
+    </section>
+
+    <section class="policy-section reveal" id="changes">
+      <div class="sec-head"><span class="num">10</span><h2 class="display" data-i18n="s10.title">Changes to this policy</h2></div>
+      <p data-i18n="s10.p1">We may update this policy as the app grows. The effective date above always marks the current version, and material changes will be announced in the app. Continuing to use Prabhaya after an update means you accept the revised policy.</p>
+    </section>
+
+    <section class="policy-section reveal" id="contact">
+      <div class="sec-head"><span class="num">11</span><h2 class="display" data-i18n="s11.title">Contact us</h2></div>
+      <div class="contact-card">
+        <p data-i18n="s11.p1">Questions, deletion requests or privacy concerns — open an issue on our public GitHub repository. We read every one.</p>
+        <a class="contact-btn" data-contact-link href="https://github.com/madhavramini/prabhaya/issues" target="_blank" rel="noopener">
+          <svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg><span data-i18n="s11.btn">Open a GitHub issue</span>
+        </a>
+        <p class="contact-note" data-i18n="s11.note">Please don't put sensitive details (health records, ID numbers) in a public issue — ask us there for a private channel first.</p>
+      </div>
+    </section>
+  </article>
+</div>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <svg aria-hidden="true"><use href="#i-logo"/></svg>
+      <span class="brand-name display">Prabhaya</span>
+    </div>
+    <a class="foot-top" href="#top"><span data-i18n="footer.top">Back to top</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
+    <p class="foot-tag" data-i18n="footer.tag">Awareness, in your language.</p>
+    <div class="foot-meta">
+      <span data-i18n="footer.meta">Effective 10 November 2026 · Version 1.0</span><br>
+      <span data-i18n="footer.copy">© 2026 Prabhaya · Built for Telangana's communities</span>
+    </div>
+  </div>
+</footer>
+
+<button type="button" class="to-top" id="toTop" data-i18n-title="footer.top" title="Back to top" aria-label="Back to top">
+  <svg class="ic" aria-hidden="true"><use href="#i-up"/></svg>
+</button>
+
+<noscript><p style="text-align:center;padding:12px;font-size:13px">Language switching needs JavaScript — the English policy is shown.</p></noscript>
+
+<script>
+"use strict";
+/* One place to change the contact destination if the repo is named differently. */
+const CONTACT_URL = "https://github.com/madhavramini/prabhaya/issues";
+
+/* ---------- translations (English is captured from the markup) ---------- */
+const TE = {
+"misc.skip":"ముఖ్య కంటెంట్‌కు వెళ్లండి",
+"brand.tag":"గోప్యతా విధానం",
+"nav.overview":"అవలోకనం","nav.data":"మీ డేటా","nav.permissions":"అనుమతులు","nav.rights":"మీ ఎంపికలు","nav.contact":"సంప్రదింపు",
+"nav.print":"ప్రింట్ / PDF సేవ్",
+"hero.eyebrow":"అమలు తేదీ: 10 నవంబర్ 2026 · వెర్షన్ 1.0",
+"hero.titleA":"మీ నమ్మకం,","hero.titleB":"సరళమైన మాటల్లో.",
+"hero.lede":"ప్రభయ గ్రామీణ కుటుంబాలకు ప్రభుత్వ పథకాలు, ఆరోగ్య మార్గదర్శకత్వం, సమీప సేవలను కనుగొనడంలో సహాయపడుతుంది — తెలుగు, హిందీ, ఇంగ్లీష్ భాషల్లో. యాప్ ఏ డేటాను తాకుతుందో, అది ఎక్కడికి వెళ్తుందో, దానిపై మీ నియంత్రణ ఏమిటో ఈ పేజీ స్పష్టంగా చెబుతుంది.",
+"hero.pill1":"ప్రకటనలు లేవు","hero.pill2":"డేటా అమ్మడం లేదు","hero.pill3":"ముందుగా ఫోన్‌లోనే","hero.pill4":"ఖాతా అవసరం లేదు",
+"hero.cta":"విధానం చదవండి",
+"glance.g1t":"ముందుగా మీ ఫోన్‌లోనే","glance.g1d":"సాధ్యమైనంత వరకు మాటలు, అనువాదం, పథకాల పొందిక మీ ఫోన్‌లోనే జరుగుతాయి.",
+"glance.g2t":"ఖాతా ఎప్పుడూ అవసరం లేదు","glance.g2d":"సైన్ అప్ లేకుండానే అన్ని ఫీచర్లు పనిచేస్తాయి. మీ పేరు, ఫోన్ నంబర్, చిరునామా మేము ఎప్పుడూ అడగము.",
+"glance.g3t":"ప్రకటనలు, ట్రాకర్లు లేవు","glance.g3d":"ప్రభయలో ప్రకటనలు గానీ, మూడవ పక్ష అనలిటిక్స్ SDKలు గానీ లేవు.",
+"glance.g4t":"డయాగ్నోస్టిక్స్ ఐచ్ఛికం","glance.g4d":"మీరు ఒప్పుకునే వరకు అనామక వాడక సమాచారం ఆఫ్‌లోనే ఉంటుంది — ప్రొఫైల్‌లో ఎప్పుడైనా ఆపవచ్చు.",
+"toc.title":"ఈ పేజీలో","toc.metaT":"ప్రభయ — ఆండ్రాయిడ్ యాప్","toc.metaD":"ఉచితం · తెలుగు / హిందీ / ఇంగ్లీష్ · ప్రకటనలు లేవు",
+"s1.title":"అవలోకనం",
+"s1.p1":"“ప్రభయ” (“యాప్”, “మేము”) తెలుగు మాట్లాడే సముదాయాల కోసం, ముఖ్యంగా తెలంగాణ కోసం రూపొందించిన ఉచిత డిజిటల్ అవగాహన యాప్. ప్రభుత్వ పథకాలు, టీకా & పోషకాహార మార్గదర్శకత్వం, ఋతుక్రమ సంరక్షణ, ఆర్థిక అవగాహన, సమీప సేవలు కనుగొనడంలో ఇది సహాయపడుతుంది.",
+"s1.p2":"మా వాగ్దానం సరళంగా: సాధ్యమైనంత తక్కువ సేకరించడం, సాధ్యమైనంత వరకు మీ ఫోన్‌లోనే ప్రాసెస్ చేయడం, డేటా ఫోన్ దాటే కొన్ని సందర్భాలను స్పష్టంగా చెప్పడం. ఈ విధానం ఇంగ్లీష్, తెలుగు, హిందీలో అందుబాటులో ఉంది; ఏదైనా తేడా వస్తే ఇంగ్లీష్ వెర్షనే ప్రామాణికం.",
+"s2.title":"మేము ఏమి సేకరిస్తాము",
+"s2.intro":"ఏదీ నిశ్శబ్దంగా సేకరించబడదు. యాప్ తాకే ప్రతి డేటా రకం, అది ఎక్కడికి వెళ్తుందో ఇక్కడ ఉంది.",
+"s2.th1":"డేటా","s2.th2":"ఎందుకు అవసరం","s2.th3":"ఎక్కడ ప్రాసెస్ అవుతుంది","s2.th4":"ఫోన్ దాటుతుందా?",
+"s2.r1c1":"మాటలు (మైక్రోఫోన్)","s2.r1c2":"చేతులు లేకుండా ప్రశ్నలు అడగడానికి మీ మాటలను టెక్స్ట్‌గా మార్చడం","s2.r1c3":"ఆండ్రాయిడ్ స్పీచ్ రికగ్నిషన్; మీరు మాట్లాడుతున్నప్పుడు ఆ సేవ ఆడియోను Google సర్వర్లలో ప్రాసెస్ చేయవచ్చు","s2.r1c4":"వాయిస్ సెషన్ సమయంలో మాత్రమే — మేము ఎప్పుడూ రికార్డ్ లేదా నిల్వ చేయము",
+"s2.r2c1":"చాట్ ప్రశ్నలు","s2.r2c2":"మీకు పథకాలు పొందించి సమాధానాలు ఇవ్వడం","s2.r2c3":"ఫోన్‌లోని పథకాల ఇంజిన్; క్లౌడ్ సమాధానాలు ఆన్‌లో ఉన్నప్పుడు మీ ప్రశ్న, ఇటీవలి చాట్ సందర్భం HTTPS ద్వారా OpenAIకి వెళ్తాయి","s2.r2c4":"క్లౌడ్ సమాధానాలు వాడినప్పుడు మాత్రమే",
+"s2.r3c1":"స్థానం","s2.r3c2":"సమీప ఆసుపత్రులు, సేవలు కనుగొనడం; మ్యాప్స్‌లో దారులు తెరవడం","s2.r3c3":"మీ ఫోన్‌లోనే; మీరు దారి లింక్ నొక్కినప్పుడు మాత్రమే Google Maps‌కు ఇవ్వబడుతుంది","s2.r3c4":"మా సర్వర్లకు ఎప్పుడూ కాదు",
+"s2.r4c1":"ఆరోగ్య నమోదులు & ప్రాధాన్యతలు","s2.r4c2":"మీరు గుర్తించిన డోసులు, చక్రాలు, సెట్టింగ్‌లు గుర్తుంచుకోవడం","s2.r4c3":"మీ ఫోన్ ప్రైవేట్ యాప్ స్టోరేజ్‌లో మాత్రమే నిల్వ","s2.r4c4":"ఎప్పుడూ లేదు",
+"s2.r5c1":"వాడక డయాగ్నోస్టిక్స్ (ఐచ్ఛికం)","s2.r5c2":"సమాధానాల నాణ్యత పెంచడం, లోపాలు సరిచేయడం","s2.r5c3":"మా పరిశోధన సర్వర్‌కు అనామక ఈవెంట్లు — సందేశ టెక్స్ట్ ఎప్పుడూ పంపబడదు","s2.r5c4":"మీరు ఒప్పుకుంటే మాత్రమే",
+"s3.title":"సమాచారాన్ని ఎలా ఉపయోగిస్తాము",
+"s3.b1":"మీ ప్రశ్నలకు సమాధానం ఇవ్వడం, మీరు అర్హులు కాగల ప్రభుత్వ పథకాలతో పొందించడం.",
+"s3.b2":"సమీప కేంద్రాలను చూపడం, మీరు దారులు అడిగినప్పుడు మ్యాప్స్ తెరవడం.",
+"s3.b3":"మీరు ఎంచుకున్న భాషలో సమాధానాలను చదివి వినిపించడం.",
+"s3.b4":"మీ భాష, ట్రాకర్ నమోదులు, సెట్టింగ్‌లను తిరిగి వచ్చినప్పుడు గుర్తుంచుకోవడం.",
+"s3.b5":"మీరు డయాగ్నోస్టిక్స్‌కు ఒప్పుకుంటే, ఏ ఫీచర్లు ఎక్కువ ఉపయోగపడుతున్నాయో తెలుసుకోవడం, విఫలమైనవాటిని సరిచేయడం.",
+"s3.closing":"మేము డేటా అమ్మము, ప్రకటనలు చూపము, మార్కెటింగ్ ప్రొఫైల్స్ నిర్మించము. ఎప్పుడూ.",
+"s4.title":"అనుమతులు",
+"s4.intro":"యాప్ మూడు అనుమతులు అడుగుతుంది. ప్రతిదీ మీరు వాడే ఫీచర్‌కు సంబంధించినదే; ప్రతిదీ నిరాకరించవచ్చు.",
+"s4.p1t":"మైక్రోఫోన్","s4.p1d":"మీరు వాయిస్ సెషన్‌లో ప్రశ్నలు అడిగే సమయంలో మాత్రమే. నిరాకరిస్తే టైపింగ్ మామూలుగా పనిచేస్తుంది.",
+"s4.p2t":"స్థానం","s4.p2d":"సమీప సహాయం, ఆరోగ్య దారుల కోసం మాత్రమే. నిరాకరిస్తే మీ స్థానాన్ని చేతితో నమోదు చేయవచ్చు.",
+"s4.p3t":"ఇంటర్నెట్ & నెట్‌వర్క్ స్థితి","s4.p3d":"ఐచ్ఛిక అనువాద మాడల్స్ డౌన్‌లోడ్, ఆన్‌లో ఉంటే క్లౌడ్ సమాధానాలు, కనెక్టివిటీ తనిఖీకి. ముఖ్య పథకాల పొందిక పూర్తిగా ఆఫ్‌లైన్‌లో పనిచేస్తుంది.",
+"s4.note":"ఏ అనుమతినైనా ఎప్పుడైనా మార్చవచ్చు: <code>Android Settings → Apps → Prabhaya → Permissions</code>.",
+"s5.title":"మూడవ పక్ష సేవలు",
+"s5.intro":"కొన్ని ఫీచర్లు విశ్వసనీయ సేవాదారులపై ఆధారపడతాయి. అప్పుడు మీ డేటా ఆ సంస్థ సొంత విధానం ప్రకారం నిర్వహించబడుతుంది:",
+"s5.t1d":"క్లౌడ్ మోడ్ ఆన్‌లో ఉన్నప్పుడు మాత్రమే క్లౌడ్ చాట్ సమాధానాలు, ప్రశ్న ఎంబెడ్డింగ్‌లు. మీ ప్రశ్న, ఇటీవలి చాట్‌లో కొంత భాగం HTTPS ద్వారా పంపబడుతుంది.",
+"s5.t2d":"ఫోన్‌లోనే తెలుగు ↔ ఇంగ్లీష్ అనువాదం. మాడల్స్ ఒక్కసారి డౌన్‌లోడ్ అవుతాయి; ఆ తర్వాత అనువాదం మీ ఫోన్‌లో ఆఫ్‌లైన్‌లో జరుగుతుంది.",
+"s5.t3d":"ఆండ్రాయిడ్ సిస్టమ్ స్పీచ్ సేవల ద్వారా వాయిస్ ఇన్‌పుట్, సమాధానాలను చదివి వినిపించడం.",
+"s5.t4d":"సమీప శోధన కోసం పరికర స్థానం — మీ ఫోన్‌లోనే ప్రాసెస్ అవుతుంది.",
+"s5.t5d":"మీరు దారి లింక్ నొక్కినప్పుడు మాత్రమే తెరుచుకుంటుంది; మీరు ఎంచుకున్న స్థానం Maps‌కు ఇవ్వబడుతుంది.",
+"s5.policy":"విధానం",
+"s5.note":"<strong>మీ ఆరోగ్య నమోదులు, యాప్ ప్రాధాన్యతలు ఈ సేవలకు ఎప్పుడూ పంపబడవు.</strong>",
+"s6.title":"డయాగ్నోస్టిక్స్ — వివరంగా",
+"s6.p1":"మీరు ఆన్‌బోర్డింగ్‌లో గానీ, తర్వాత ప్రొఫైల్‌లో గానీ ఒప్పుకుంటే — ఒప్పుకున్నప్పుడు మాత్రమే — సమాధానాల నాణ్యత మెరుగుపరచడానికి యాప్ అనామక వాడక ఈవెంట్లను మా పరిశోధన సర్వర్‌కు పంపుతుంది.",
+"s6.p2":"ఒక ఈవెంట్‌లో ఉండేవి: యాదృచ్ఛిక ఇన్‌స్టాలేషన్ ID (మీ పేరు లేదా నంబర్ కాదు), సెషన్ ID, ఈవెంట్ రకం, మీ భాష, యాప్ వెర్షన్, ఆండ్రాయిడ్ వెర్షన్, సందేశాలకు — ఏకముఖ SHA-256 హాష్ మరియు అక్షరాల సంఖ్య. <strong>సందేశ టెక్స్ట్ ఎప్పుడూ మీ ఫోన్ దాటదు.</strong>",
+"s6.p3":"జర్నీ ఈవెంట్లు సుమారు 18 నెలలు ఉంచి తర్వాత తొలగించబడతాయి; అనామక మొత్తం లెక్కలు ఎక్కువ కాలం ఉంచవచ్చు. ప్రొఫైల్‌లో డయాగ్నోస్టిక్స్ ఆఫ్ చేస్తే సేకరణ వెంటనే ఆగి, ఫోన్‌లోని పంపని క్యూ తొలగించబడుతుంది. ఇప్పటికే సర్వర్‌లో ఉన్న డేటా తొలగించాలంటే కింద మమ్మల్ని సంప్రదించండి.",
+"s7.title":"నిల్వ & భద్రత",
+"s7.p1":"ట్రాకర్ నమోదులు, ప్రాధాన్యతలు, చాట్ చరిత్ర మీ ఫోన్ ప్రైవేట్ యాప్ స్టోరేజ్‌లో ఉంటాయి. అన్ని నెట్‌వర్క్ అభ్యర్థనలు HTTPS వాడతాయి, మీరు జోడించిన కీలు యాప్ సురక్షిత కీ స్టోర్‌లో ఉంటాయి, డయాగ్నోస్టిక్స్ బేరర్ టోకెన్‌తో ప్రయాణిస్తాయి. ఏ వ్యవస్థా పరిపూర్ణం కాదు — అందుకే బయటపడే అవకాశం ఉన్నది చాలా తక్కువగా ఉంచేలా మేము ఉద్దేశపూర్వకంగా రూపొందించాము.",
+"s8.title":"మీ హక్కులు & ఎంపికలు",
+"s8.intro":"ప్రతి డేటాపై నియంత్రణ మీదే:",
+"s8.r1t":"స్థానిక డేటా చూడండి & తొలగించండి","s8.r1d":"మీ ఫోన్‌లో ఉన్నదంతా మీదే. Settings → Apps → Prabhaya → Storage → Clear storage ద్వారా తొలగించండి, లేదా యాప్‌ను అన్‌ఇన్‌స్టాల్ చేయండి.",
+"s8.r2t":"సమ్మతి ఉపసంహరించుకోండి","s8.r2d":"ప్రొఫైల్‌లో డయాగ్నోస్టిక్స్ ఎప్పుడైనా ఆఫ్ చేయండి; పంపని స్థానిక క్యూ వెంటనే తొలగించబడుతుంది.",
+"s8.r3t":"అనుమతులు రద్దు చేయండి","s8.r3d":"మైక్రోఫోన్ లేదా స్థానాన్ని నిరాకరించినా ముఖ్య ఫీచర్లు పనిచేస్తాయి — టైపింగ్, చేతితో స్థానం నమోదు ఎప్పుడూ పనిచేస్తాయి.",
+"s8.r4t":"సర్వర్ డేటా తొలగింపు","s8.r4d":"మీ ఇన్‌స్టాలేషన్‌కు సంబంధించిన డయాగ్నోస్టిక్స్ తొలగించమని మమ్మల్ని అడగండి. 30 రోజుల్లోపు నిర్ధారిస్తాము.",
+"s8.r5t":"సమస్య చెప్పండి","s8.r5d":"మీ డేటా దుర్వినియోగం అయిందని అనుమానమా? ముందుగా మమ్మల్ని సంప్రదించండి — పరిశీలించి సరిచేస్తాము.",
+"s8.dpdp":"ఈ ఎంపికలు భారతదేశపు డిజిటల్ వ్యక్తిగత డేటా సంరక్షణ చట్టం, 2023లోని హక్కులను ప్రతిబింబిస్తాయి.",
+"s9.title":"పిల్లల గోప్యత",
+"s9.p1":"ప్రభయ అందరి కోసం ఉద్దేశించిన యాప్; 13 ఏళ్లలోపు పిల్లల కోసం ఉద్దేశించబడలేదు. పిల్లల వ్యక్తిగత సమాచారాన్ని మేము తెలిసి సేకరించము. పిల్లలు యాప్ ద్వారా డేటా ఇచ్చారని మీరు భావిస్తే, మమ్మల్ని సంప్రదించండి — దానిని తొలగిస్తాము.",
+"s10.title":"ఈ విధానంలో మార్పులు",
+"s10.p1":"యాప్ పెరిగే కొద్దీ ఈ విధానాన్ని నవీకరించవచ్చు. పైన ఉన్న అమలు తేదీ ఎప్పుడూ ప్రస్తుత వెర్షన్‌ను సూచిస్తుంది; ముఖ్యమైన మార్పులను యాప్‌లో ప్రకటిస్తాము. నవీకరణ తర్వాత కూడా ప్రభయను వాడటం అంటే సవరించిన విధానాన్ని మీరు అంగీకరించినట్లు.",
+"s11.title":"మమ్మల్ని సంప్రదించండి",
+"s11.p1":"ప్రశ్నలు, తొలగింపు అభ్యర్థనలు లేదా గోప్యత సమస్యలు — మా పబ్లిక్ GitHub రిపోజిటరీలో issue తెరవండి. ప్రతిదీ చదువుతాము.",
+"s11.btn":"GitHub issue తెరవండి",
+"s11.note":"దయచేసి సున్నితమైన వివరాలు (ఆరోగ్య రికార్డులు, ID నంబర్లు) పబ్లిక్ issueలో పెట్టవద్దు — ప్రైవేట్ మార్గం కోసం అక్కడ మమ్మల్ని అడగండి.",
+"footer.top":"పైకి","footer.tag":"అవగాహన — మీ భాషలో.",
+"footer.meta":"అమలు తేదీ: 10 నవంబర్ 2026 · వెర్షన్ 1.0",
+"footer.copy":"© 2026 ప్రభయ · తెలంగాణ సముదాయాల కోసం నిర్మించబడింది"
+};
+
+const HI = {
+"misc.skip":"मुख्य सामग्री पर जाएँ",
+"brand.tag":"गोपनीयता नीति",
+"nav.overview":"अवलोकन","nav.data":"आपका डेटा","nav.permissions":"अनुमतियाँ","nav.rights":"आपके विकल्प","nav.contact":"संपर्क",
+"nav.print":"प्रिंट / PDF सहेजें",
+"hero.eyebrow":"प्रभावी तिथि: 10 नवंबर 2026 · संस्करण 1.0",
+"hero.titleA":"आपका भरोसा,","hero.titleB":"सरल शब्दों में।",
+"hero.lede":"प्रभया ग्रामीण परिवारों को सरकारी योजनाएँ, स्वास्थ्य मार्गदर्शन और नज़दीकी सेवाएँ खोजने में मदद करता है — तेलुगु, हिंदी और अंग्रेज़ी में। यह पेज साफ़-साफ़ बताता है कि ऐप किस डेटा को छूता है, वह कहाँ जाता है, और उस पर आपका क्या नियंत्रण है।",
+"hero.pill1":"कोई विज्ञापन नहीं","hero.pill2":"डेटा बेचा नहीं जाता","hero.pill3":"पहले आपके फ़ोन पर","hero.pill4":"खाते की ज़रूरत नहीं",
+"hero.cta":"नीति पढ़ें",
+"glance.g1t":"पहले आपके डिवाइस पर","glance.g1d":"जहाँ तक संभव हो, आवाज़, अनुवाद और योजना मिलान आपके फ़ोन पर ही चलते हैं।",
+"glance.g2t":"कभी खाता नहीं","glance.g2d":"बिना साइन-अप के हर सुविधा चलती है। हम आपका नाम, फ़ोन नंबर या पता कभी नहीं माँगते।",
+"glance.g3t":"कोई विज्ञापन, कोई ट्रैकर नहीं","glance.g3d":"प्रभया में न विज्ञापन हैं, न तीसरे पक्ष के एनालिटिक्स SDK।",
+"glance.g4t":"डायग्नोस्टिक्स वैकल्पिक हैं","glance.g4d":"आपकी सहमति तक अनाम उपयोग डेटा बंद रहता है — प्रोफ़ाइल में कभी भी बंद कर सकते हैं।",
+"toc.title":"इस पेज पर","toc.metaT":"प्रभया — Android ऐप","toc.metaD":"मुफ़्त · तेलुगु / हिंदी / अंग्रेज़ी · कोई विज्ञापन नहीं",
+"s1.title":"अवलोकन",
+"s1.p1":"प्रभया (“ऐप”, “हम”) तेलुगु भाषी समुदायों के लिए बनाया गया एक मुफ़्त डिजिटल जागरूकता ऐप है, जिसका ध्यान तेलंगाना पर है। यह सरकारी योजनाएँ, टीकाकरण व पोषण मार्गदर्शन, मासिक धर्म देखभाल, वित्तीय जागरूकता और नज़दीकी सेवाएँ खोजने में मदद करता है।",
+"s1.p2":"हमारा वादा सरल शब्दों में: जितना कम हो सके उतना संग्रह करना, जहाँ हो सके आपके डिवाइस पर ही प्रोसेस करना, और डेटा फ़ोन से बाहर जाने के कुछ मामलों को साफ़ बताना। यह नीति अंग्रेज़ी, तेलुगु और हिंदी में उपलब्ध है; कोई अंतर होने पर अंग्रेज़ी संस्करण मान्य होगा।",
+"s2.title":"हम क्या संग्रह करते हैं",
+"s2.intro":"कुछ भी चुपचाप संग्रह नहीं होता। ऐप जिस भी डेटा को छूता है और वह कहाँ जाता है, यह रहा पूरा ब्यौरा।",
+"s2.th1":"डेटा","s2.th2":"क्यों ज़रूरी है","s2.th3":"कहाँ प्रोसेस होता है","s2.th4":"फ़ोन से बाहर जाता है?",
+"s2.r1c1":"आवाज़ (माइक्रोफ़ोन)","s2.r1c2":"बिना हाथ लगाए सवाल पूछने के लिए आवाज़ को टेक्स्ट में बदलना","s2.r1c3":"Android की स्पीच रिकग्निशन; सुनते समय यह सेवा ऑडियो को Google के सर्वर पर प्रोसेस कर सकती है","s2.r1c4":"सिर्फ़ वॉइस सत्र के दौरान — हम इसे कभी रिकॉर्ड या संग्रहीत नहीं करते",
+"s2.r2c1":"चैट सवाल","s2.r2c2":"योजनाओं से मिलान और जवाब तैयार करना","s2.r2c3":"डिवाइस पर योजना इंजन; क्लाउड जवाब चालू होने पर आपका सवाल और हाल की चैट HTTPS से OpenAI को जाती है","s2.r2c4":"सिर्फ़ क्लाउड जवाब इस्तेमाल होने पर",
+"s2.r3c1":"स्थान","s2.r3c2":"नज़दीकी अस्पताल व सेवाएँ खोजना; Maps में रास्ते खोलना","s2.r3c3":"आपके डिवाइस पर; सिर्फ़ रास्ते के लिंक पर टैप करने पर Google Maps को दिया जाता है","s2.r3c4":"हमारे सर्वर पर कभी नहीं",
+"s2.r4c1":"स्वास्थ्य प्रविष्टियाँ व प्राथमिकताएँ","s2.r4c2":"आपके दर्ज किए डोज़, चक्र और सेटिंग्स याद रखना","s2.r4c3":"सिर्फ़ आपके फ़ोन के निजी ऐप स्टोरेज में","s2.r4c4":"कभी नहीं",
+"s2.r5c1":"उपयोग डायగ్నోస్టిक्स (वैकल्पिक)","s2.r5c2":"जवाबों की गुणवत्ता सुधारना और ख़ामियाँ ठीक करना","s2.r5c3":"हमारे रिसर्च सर्वर पर छद्मनामी इवेंट — संदेश का टेक्स्ट कभी नहीं भेजा जाता","s2.r5c4":"सिर्फ़ आपकी सहमति से",
+"s3.title":"सूचना का उपयोग कैसे करते हैं",
+"s3.b1":"आपके सवालों के जवाब देना और आपकी पात्रता वाली सरकारी योजनाओं से मिलान करना।",
+"s3.b2":"नज़दीकी केंद्र दिखाना और रास्ते पूछने पर मैप्स खोलना।",
+"s3.b3":"आपकी चुनी भाषा में जवाब बोलकर सुनाना।",
+"s3.b4":"आपकी भाषा, ट्रैकर प्रविष्टियाँ और सेटिंग्स अगली बार याद रखना।",
+"s3.b5":"डायగ్నోస్టిक्स की सहमति पर, समझना कि कौन-सी सुविधाएँ सबसे उपयोगी हैं और विफलताएँ ठीक करना।",
+"s3.closing":"हम डेटा बेचते नहीं, विज्ञापन दिखाते नहीं, मार्केटिंग प्रोफ़ाइल बनाते नहीं। कभी।",
+"s4.title":"अनुमतियाँ",
+"s4.intro":"ऐप तीन अनुमतियाँ माँगता है। हर एक आपकी चुनी सुविधा से जुड़ी है, और हर एक को मना किया जा सकता है।",
+"s4.p1t":"माइक्रोफ़ोन","s4.p1d":"सिर्फ़ वॉइस सत्र में ज़ोर से सवाल पूछते समय। मना करें तो टाइपिंग सामान्य रूप से चलती है।",
+"s4.p2t":"स्थान","s4.p2d":"सिर्फ़ नज़दीकी मदद और स्वास्थ्य रास्तों के लिए। मना करें तो स्थान हाथ से दर्ज कर सकते हैं।",
+"s4.p3t":"इंटरनेट व नेटवर्क स्थिति","s4.p3d":"वैकल्पिक अनुवाद मॉडल डाउनलोड, चालू होने पर क्लाउड जवाब, और कनेक्टिविटी जाँच के लिए। मुख्य योजना मिलान पूरी तरह ऑफ़लाइन चलता है।",
+"s4.note":"कोई भी अनुमति कभी बदलें: <code>Android Settings → Apps → Prabhaya → Permissions</code>.",
+"s5.title":"तृतीय-पक्ष सेवाएँ",
+"s5.intro":"कुछ सुविधाएँ भरोसेमंद प्रदाताओं पर निर्भर हैं। ऐसे में आपका डेटा उस प्रदाता की अपनी नीति के अनुसार संभाला जाता है:",
+"s5.t1d":"क्लाउड मोड चालू होने पर ही क्लाउड चैट जवाब और प्रश्न एम्बेडिंग। आपका सवाल और हाल की चैट का छोटा हिस्सा HTTPS से भेजा जाता है।",
+"s5.t2d":"डिवाइस पर ही तेलुगु ↔ अंग्रेज़ी अनुवाद। मॉडल एक बार डाउनलोड होते हैं; फिर अनुवाद आपके फ़ोन पर ऑफ़लाइन चलता है।",
+"s5.t3d":"Android सिस्टम की स्पीच सेवाओं से वॉइस इनपुट और जवाब बोलकर सुनाना।",
+"s5.t4d":"नज़दीकी खोज के लिए डिवाइस का स्थान — आपके डिवाइस पर ही प्रोसेस होता है।",
+"s5.t5d":"सिर्फ़ रास्ते के लिंक पर टैप करने पर खुलता है; आपका चुना स्थान Maps को दिया जाता है।",
+"s5.policy":"नीति",
+"s5.note":"<strong>आपकी स्वास्थ्य प्रविष्टियाँ और ऐप प्राथमिकताएँ इनमें से किसी सेवा को कभी नहीं भेजी जातीं।</strong>",
+"s6.title":"डायగ్నోస్టిक्स — विस्तार से",
+"s6.p1":"अगर — और सिर्फ़ अगर — आप ऑनबोर्डिंग में या बाद में प्रोफ़ाइल में सहमति देते हैं, तो ऐप जवाबों की गुणवत्ता सुधारने के लिए छद्मनामी उपयोग इवेंट हमारे रिसर्च सर्वर को भेजता है।",
+"s6.p2":"एक इवेंट में होता है: यादृच्छिक इंस्टॉलेशन ID (आपका नाम या नंबर नहीं), सेशन ID, इवेंट का प्रकार, आपकी भाषा, ऐप संस्करण, Android संस्करण, और संदेशों के लिए — एकतरफ़ा SHA-256 हैश व अक्षरों की संख्या। <strong>संदेश का टेक्स्ट कभी आपके फ़ोन से बाहर नहीं जाता।</strong>",
+"s6.p3":"जर्नी इवेंट लगभग 18 महीने रखे जाते हैं और फिर हटा दिए जाते हैं; अनाम कुल आँकड़े ज़्यादा समय तक रखे जा सकते हैं। प्रोफ़ाइल में डायగ్నోస్టిक्स बंद करने पर संग्रह तुरंत रुक जाता है और फ़ोन की अनभेजी कतार हटा दी जाती है। सर्वर पर मौजूद डेटा हटवाने के लिए नीचे संपर्क करें।",
+"s7.title":"भंडारण व सुरक्षा",
+"s7.p1":"ट्रैकर प्रविष्टियाँ, प्राथमिकताएँ और चैट इतिहास आपके फ़ोन के निजी ऐप स्टोरेज में रहते हैं। सभी नेटवर्क अनुरोध HTTPS इस्तेमाल करते हैं, आपकी जोड़ी गई keys ऐप के सुरक्षित key store में रहती हैं, और डायగ్నోస్టిक्स bearer token से भेजे जाते हैं। कोई व्यवस्था पूर्ण नहीं है — इसलिए हम जानबूझकर बहुत कम रखते हैं जो कभी उजागर हो सके।",
+"s8.title":"आपके अधिकार व विकल्प",
+"s8.intro":"हर डेटा पर नियंत्रण आपका रहता है:",
+"s8.r1t":"स्थानीय डेटा देखें व हटाएँ","s8.r1d":"फ़ोन पर मौजूद सब कुछ आपका है। Settings → Apps → Prabhaya → Storage → Clear storage से साफ़ करें, या ऐप अनइंस्टॉल कर दें।",
+"s8.r2t":"सहमति वापस लें","s8.r2d":"प्रोफ़ाइल में डायగ్నోస్టిक्स कभी भी बंद करें; अनभेजी स्थानीय कतार तुरंत हटा दी जाती है।",
+"s8.r3t":"अनुमतियाँ रद्द करें","s8.r3d":"माइक्रोफ़ोन या स्थान मना करने पर भी मुख्य सुविधाएँ चलती हैं — टाइपिंग और हाथ से स्थान दर्ज करना हमेशा काम करता है।",
+"s8.r4t":"सर्वर डेटा हटवाना","s8.r4d":"अपने इंस्टॉलेशन से जुड़े डాయగ్నోస్టిक्स हटाने को कहें। हम 30 दिनों के भीतर पुष्टि करते हैं।",
+"s8.r5t":"चिंता जताएँ","s8.r5d":"लगता है आपके डेटा का दुरुपयोग हुआ? पहले हमसे संपर्क करें — हम जाँच करके बात ठीक करेंगे।",
+"s8.dpdp":"ये विकल्प भारत के डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023 में दिए अधिकारों को दर्शाते हैं।",
+"s9.title":"बच्चों की गोपनीयता",
+"s9.p1":"प्रभया सामान्य दर्शकों का ऐप है और 13 वर्ष से कम बच्चों के लिए निर्देशित नहीं है। हम बच्चों की व्यक्तिगत जानकारी जानबूझकर संग्रह नहीं करते। अगर आपको लगता है कि किसी बच्चे ने ऐप से डेटा दिया है, तो संपर्क करें — हम उसे हटा देंगे।",
+"s10.title":"इस नीति में बदलाव",
+"s10.p1":"ऐप के बढ़ने के साथ हम इस नीति को अपडेट कर सकते हैं। ऊपर दी प्रभावी तिथि हमेशा वर्तमान संस्करण दिखाती है, और बड़े बदलाव ऐप में घोषित किए जाएँगे। अपडेट के बाद प्रभया इस्तेमाल जारी रखने का अर्थ है कि आप संशोधित नीति स्वीकार करते हैं।",
+"s11.title":"हमसे संपर्क करें",
+"s11.p1":"सवाल, डेटा हटाने के अनुरोध या गोपनीयता चिंताएँ — हमारे सार्वजनिक GitHub रिपॉजिटरी पर issue खोलें। हम हर एक पढ़ते हैं।",
+"s11.btn":"GitHub issue खोलें",
+"s11.note":"कृपया संवेदनशील विवरण (स्वास्थ्य रिकॉर्ड, ID नंबर) सार्वजनिक issue में न डालें — निजी माध्यम के लिए हमसे वहीं पूछें।",
+"footer.top":"ऊपर जाएँ","footer.tag":"जागरूकता, आपकी भाषा में।",
+"footer.meta":"प्रभावी तिथि: 10 नवंबर 2026 · संस्करण 1.0",
+"footer.copy":"© 2026 प्रभया · तेलंगाना के समुदायों के लिए बनाया गया"
+};
+
+/* ---------- language engine ---------- */
+const EN = {};
+document.querySelectorAll("[data-i18n]").forEach(el => { EN[el.dataset.i18n] = el.innerHTML; });
+const DICTS = { en: EN, te: TE, hi: HI };
+const TITLES = { en: "Privacy Policy — Prabhaya", te: "గోప్యతా విధానం — Prabhaya", hi: "गोपनीयता नीति — Prabhaya" };
+const COL_KEYS = ["s2.th1","s2.th2","s2.th3","s2.th4"];
+let current = "en";
+
+function setLang(lang){
+  if(!DICTS[lang]) lang = "en";
+  current = lang;
+  const dict = DICTS[lang];
+  document.documentElement.lang = lang;
+  document.title = TITLES[lang];
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const v = dict[el.dataset.i18n];
+    if(v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll("[data-i18n-title]").forEach(el => {
+    const v = dict[el.dataset.i18nTitle];
+    if(v !== undefined){ el.title = v; el.setAttribute("aria-label", v); }
+  });
+  document.querySelectorAll(".lang-toggle button").forEach(b => {
+    const on = b.dataset.lang === lang;
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-pressed", on);
+  });
+  document.querySelectorAll("#dataTable tbody tr").forEach(tr => {
+    tr.querySelectorAll("td").forEach((td, i) => {
+      const v = dict[COL_KEYS[i]];
+      if(v !== undefined) td.setAttribute("data-label", v.replace(/<[^>]*>/g,""));
+    });
+  });
+  try{ localStorage.setItem("prabhaya-policy-lang", lang); }catch(e){}
+}
+
+document.querySelectorAll(".lang-toggle button").forEach(b => {
+  b.addEventListener("click", () => setLang(b.dataset.lang));
+});
+
+let initial = "en";
+try{
+  const saved = localStorage.getItem("prabhaya-policy-lang");
+  if(saved && DICTS[saved]) initial = saved;
+  else { const nav = (navigator.language || "en").slice(0,2).toLowerCase(); if(DICTS[nav]) initial = nav; }
+}catch(e){}
+setLang(initial);
+
+/* ---------- contact links ---------- */
+document.querySelectorAll("[data-contact-link]").forEach(a => { a.href = CONTACT_URL; });
+
+/* ---------- scroll: progress, nav shadow, to-top ---------- */
+const bar = document.getElementById("progressBar");
+const navEl = document.getElementById("nav");
+const toTop = document.getElementById("toTop");
+let ticking = false;
+function onScroll(){
+  if(ticking) return;
+  ticking = true;
+  requestAnimationFrame(() => {
+    const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
+    navEl.classList.toggle("scrolled", y > 8);
+    toTop.classList.toggle("show", y > 600);
+    if(max > 0 && y >= max - 4) setActive("contact");
+    ticking = false;
+  });
+}
+window.addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+/* ---------- reveal on scroll ---------- */
+const revealIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add("in"); revealIO.unobserve(e.target); } });
+}, { threshold: .08, rootMargin: "0px 0px -6% 0px" });
+document.querySelectorAll(".reveal").forEach(el => revealIO.observe(el));
+
+/* ---------- scroll-spy ---------- */
+const tocLinks = Array.from(document.querySelectorAll("#tocNav a, .toc-mobile-links a"));
+function setActive(id){
+  tocLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+}
+const spyIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) setActive(e.target.id); });
+}, { rootMargin: "-30% 0px -60% 0px", threshold: 0 });
+document.querySelectorAll(".policy-section").forEach(s => spyIO.observe(s));
+
+/* ---------- mobile toc: close after jumping ---------- */
+const tocMobile = document.getElementById("tocMobile");
+tocMobile.querySelectorAll("a").forEach(a => {
+  a.addEventListener("click", () => tocMobile.removeAttribute("open"));
+});
+
+/* ---------- print ---------- */
+document.getElementById("printBtn").addEventListener("click", () => window.print());
+</script>
+</body>
+</html>
