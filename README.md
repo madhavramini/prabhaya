@@ -14,7 +14,7 @@ stable URL always serves the latest release:
 
 https://github.com/madhavramini/prabhaya/releases/latest/download/prabhaya.apk
 
-To publish a new version: create a release with a new tag (e.g. `v0.1.3`) and
+To publish a new version: create a release with a new tag (e.g. `v0.1.4`) and
 attach the APK renamed to `prabhaya.apk`. The QR code and site links keep working.
 
 ## Editing
