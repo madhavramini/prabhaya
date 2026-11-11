@@ -95,7 +95,7 @@ button{font-family:inherit;cursor:pointer}
 .hero-inner>*{opacity:0;animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
 .hero-inner>*:nth-child(1){animation-delay:.05s}.hero-inner>*:nth-child(2){animation-delay:.15s}
 .hero-inner>*:nth-child(3){animation-delay:.28s}.hero-inner>*:nth-child(4){animation-delay:.42s}
-.hero-inner>*:nth-child(5){animation-delay:.55s}
+.hero-inner>*:nth-child(5){animation-delay:.55s}.hero-inner>*:nth-child(6){animation-delay:.68s}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:.14em;
   text-transform:uppercase;color:var(--rose);border:1px solid rgba(232,184,178,.35);border-radius:99px;
@@ -114,6 +114,8 @@ button{font-family:inherit;cursor:pointer}
   box-shadow:0 12px 30px -10px rgba(232,184,178,.45);transition:.25s}
 .hero-cta:hover{transform:translateY(-2px);color:var(--deep);box-shadow:0 18px 36px -10px rgba(232,184,178,.55)}
 .hero-cta .ic{width:17px;height:17px}
+.hero-funding{display:flex;align-items:center;gap:9px;margin-top:24px;font-size:13px;font-weight:500;color:#9FB6BA;max-width:640px}
+.hero-funding .ic{width:16px;height:16px;color:var(--amber)}
 
 /* ---------- sections ---------- */
 .section{max-width:1180px;margin:0 auto;padding:clamp(48px,7vh,84px) clamp(16px,5vw,48px) 0;scroll-margin-top:calc(var(--nav-h) + 24px)}
@@ -178,6 +180,27 @@ button{font-family:inherit;cursor:pointer}
 .ps-btn:hover{transform:translateY(-2px);color:var(--deep)}
 .ps-btn .ic{width:16px;height:16px}
 
+/* ---------- project & people ---------- */
+.funding-banner{position:relative;overflow:hidden;display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  background:linear-gradient(135deg,var(--deep),var(--deep2));border-radius:22px;padding:clamp(24px,3.5vw,36px);
+  color:#DCE8EA;box-shadow:var(--shadow)}
+.funding-banner::before{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-80px;top:-120px;
+  background:radial-gradient(circle,rgba(217,161,59,.25),transparent 65%);pointer-events:none}
+.fb-icon{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex:none;
+  background:linear-gradient(135deg,var(--forest),var(--teal));color:#fff;position:relative}
+.fb-icon .ic{width:26px;height:26px}
+.fb-text{flex:1;min-width:220px;position:relative;display:flex;flex-direction:column;gap:3px}
+.fb-label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--rose)}
+.fb-name{font-size:clamp(20px,2.6vw,28px);color:#FBF7EE;line-height:1.25}
+.fb-badge{position:relative;flex:none;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--deep);
+  background:linear-gradient(120deg,var(--amber),#E8C06A);padding:9px 18px;border-radius:99px;
+  box-shadow:0 8px 20px -8px rgba(217,161,59,.6)}
+.fb-btn{position:relative;display:inline-flex;align-items:center;gap:10px;flex:none;font-weight:700;font-size:14.5px;
+  color:var(--deep);background:linear-gradient(120deg,var(--rose),#F0CFC9);padding:13px 24px;border-radius:99px;transition:.25s;
+  box-shadow:0 12px 28px -10px rgba(232,184,178,.4)}
+.fb-btn:hover{transform:translateY(-2px);color:var(--deep)}
+.fb-btn .ic{width:16px;height:16px}
+
 /* ---------- footer ---------- */
 footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padding:44px clamp(16px,5vw,48px) 40px}
 .foot-inner{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:22px}
@@ -185,6 +208,8 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
 .foot-brand svg{width:34px;height:34px}
 .foot-brand .brand-name{font-size:19px}
 .foot-tag{font-size:13.5px;color:#8FA6AB;width:100%;margin-top:2px}
+.foot-funding{display:flex;align-items:center;gap:8px;width:100%;font-size:12.8px;color:#C4D4D6;margin-top:4px}
+.foot-funding .ic{width:15px;height:15px;color:var(--amber)}
 .foot-links{display:flex;gap:18px;font-size:13.5px;font-weight:600}
 .foot-links a{color:var(--rose)}
 .foot-links a:hover{color:var(--amber)}
@@ -204,6 +229,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
 }
 @media (max-width:880px){
   .hero-art{opacity:.22;right:-80px}
+  .funding-banner{gap:16px}
   .download-card{grid-template-columns:1fr;justify-items:center;text-align:center}
   .download-card .dl-desc{margin-left:auto;margin-right:auto}
   .note-box{text-align:left}
@@ -265,6 +291,8 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l7.5 3v5.6c0 4.6-3.2 7.9-7.5 9.4-4.3-1.5-7.5-4.8-7.5-9.4V5.5l7.5-3z"/><path d="M8.8 11.8l2.3 2.3 4.2-4.2"/></symbol>
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></symbol>
   <symbol id="i-android" viewBox="0 0 24 24"><path d="M7 9.5h10V17a1.5 1.5 0 0 1-1.5 1.5h-7A1.5 1.5 0 0 1 7 17zM7 9.5a5 5 0 0 1 10 0M8.5 5l-1-1.5M15.5 5l1-1.5M4.5 10v5M19.5 10v5M9.5 18.5V21M14.5 18.5V21"/><path d="M10 6.8v.4M14 6.8v.4"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9l9-5.5L21 9H3z"/><path d="M5 9v8M9.7 9v8M14.3 9v8M19 9v8M3.5 17h17M2.5 20.5h19"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M2.5 20c.8-3.2 3.4-5 6.5-5s5.7 1.8 6.5 5"/><path d="M16 5.5a3.5 3.5 0 0 1 0 6.5M17.5 15.5c2 .6 3.5 2 4 4.5"/></symbol>
 </svg>
 
 <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
@@ -277,7 +305,9 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
   </a>
   <nav class="nav-links" aria-label="Sections">
     <a href="#features" data-i18n="nav.features">Features</a>
+    <a href="#project" data-i18n="nav.project">Project</a>
     <a href="#download" data-i18n="nav.download">Download</a>
+    <a href="people/" data-i18n="nav.people">People</a>
     <a href="privacy/" data-i18n="nav.privacy">Privacy</a>
   </nav>
   <div class="nav-actions">
@@ -320,6 +350,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
       <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg><span data-i18n="hero.pill4">No ads</span></span>
     </div>
     <a class="hero-cta" href="#download"><span data-i18n="hero.cta">Download the app</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
+    <p class="hero-funding"><svg class="ic" aria-hidden="true"><use href="#i-bank"/></svg><span data-i18n="hero.funding">A project of BITS Pilani, Hyderabad Campus · Funded under CDRF-II</span></p>
   </div>
 </section>
 
@@ -362,6 +393,18 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
   </div>
 </section>
 
+<section class="section" id="project">
+  <div class="funding-banner reveal">
+    <div class="fb-icon"><svg class="ic" aria-hidden="true"><use href="#i-bank"/></svg></div>
+    <div class="fb-text">
+      <span class="fb-label" data-i18n="proj.fundedLabel">Funded by</span>
+      <strong class="fb-name display">BITS Pilani, Hyderabad Campus</strong>
+    </div>
+    <span class="fb-badge" data-i18n="proj.under">under CDRF-II</span>
+    <a class="fb-btn" href="people/"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg><span data-i18n="proj.peopleBtn">People behind Prabhaya</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
+  </div>
+</section>
+
 <section class="section" id="download">
   <div class="download-card reveal">
     <div class="qr-wrap">
@@ -400,10 +443,12 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
       <span class="brand-name display">Prabhaya</span>
     </div>
     <div class="foot-links">
+      <a href="people/" data-i18n="nav.people">People</a>
       <a href="privacy/" data-i18n="nav.privacy">Privacy</a>
       <a href="https://github.com/madhavramini/prabhaya" target="_blank" rel="noopener">GitHub</a>
     </div>
     <p class="foot-tag" data-i18n="footer.tag">Awareness, in your language.</p>
+    <p class="foot-funding"><svg class="ic" aria-hidden="true"><use href="#i-bank"/></svg><span data-i18n="footer.funding">Funded by BITS Pilani, Hyderabad Campus under CDRF-II</span></p>
     <div class="foot-meta">
       <span data-i18n="footer.copy">© 2026 Prabhaya · Built for Telangana's communities</span>
     </div>
@@ -439,6 +484,13 @@ const TE = {
 "dl.btn":"APK డౌన్‌లోడ్","dl.scan":"మీ ఫోన్ కెమెరాతో స్కాన్ చేయండి","dl.releases":"GitHubలో అన్ని రిలీజ్‌లు",
 "dl.note":"Play Store వెలుపల ఇన్‌స్టాల్ చేస్తున్నారా? తెలియని మూలాల నుండి ఇన్‌స్టాల్‌లను అనుమతించమని ఆండ్రాయిడ్ అడుగుతుంది — నేరుగా APK డౌన్‌లోడ్‌కు ఇది సాధారణం.",
 "pv.title":"మీ డేటా మీదే.","pv.text":"ప్రకటనలు లేవు, డేటా అమ్మడం లేదు, ఖాతా లేదు. యాప్ ఏమి తాకుతుందో సరళమైన మాటల్లో, మూడు భాషల్లో చదవండి.","pv.link":"గోప్యతా విధానం చదవండి",
+"nav.project":"ప్రాజెక్ట్",
+"hero.funding":"BITS Pilani, Hyderabad Campus ప్రాజెక్ట్ · CDRF-II కింద నిధులు",
+"proj.fundedLabel":"నిధులు అందించిన సంస్థ",
+"proj.under":"CDRF-II కింద",
+"proj.peopleBtn":"ప్రభయ వెనుక ఉన్న వ్యక్తులు",
+"nav.people":"వ్యక్తులు",
+"footer.funding":"BITS Pilani, Hyderabad Campus నుండి CDRF-II కింద నిధులు",
 "footer.top":"పైకి","footer.tag":"అవగాహన — మీ భాషలో.","footer.copy":"© 2026 ప్రభయ · తెలంగాణ సముదాయాల కోసం నిర్మించబడింది"
 };
 
@@ -462,6 +514,13 @@ const HI = {
 "dl.btn":"APK डाउनलोड","dl.scan":"अपने फ़ोन के कैमरे से स्कैन करें","dl.releases":"GitHub पर सभी रिलीज़",
 "dl.note":"Play Store के बाहर से इंस्टॉल कर रहे हैं? Android अज्ञात स्रोतों से इंस्टॉल की अनुमति माँगेगा — सीधे APK डाउनलोड के लिए यह सामान्य है।",
 "pv.title":"आपका डेटा आपका ही रहता है।","pv.text":"कोई विज्ञापन नहीं, डेटा बेचा नहीं जाता, कोई खाता नहीं। ऐप क्या छूता है, सरल भाषा में तीनों भाषाओं में पढ़ें।","pv.link":"गोपनीयता नीति पढ़ें",
+"nav.project":"परियोजना",
+"hero.funding":"BITS Pilani, Hyderabad Campus की परियोजना · CDRF-II के अंतर्गत वित्त पोषित",
+"proj.fundedLabel":"वित्त पोषक",
+"proj.under":"CDRF-II के अंतर्गत",
+"proj.peopleBtn":"प्रभया के पीछे के लोग",
+"nav.people":"लोग",
+"footer.funding":"BITS Pilani, Hyderabad Campus द्वारा CDRF-II के अंतर्गत वित्त पोषित",
 "footer.top":"ऊपर जाएँ","footer.tag":"जागरूकता, आपकी भाषा में।","footer.copy":"© 2026 प्रभया · तेलंगाना के समुदायों के लिए बनाया गया"
 };
 
