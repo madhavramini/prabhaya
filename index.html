@@ -395,7 +395,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
       <p class="qr-caption" data-i18n="dl.scan">Scan with your phone's camera</p>
     </div>
     <div>
-      <span class="dl-meta"><svg class="ic" aria-hidden="true"><use href="#i-android"/></svg><span data-i18n="dl.meta">Version 0.1.4 · Android 7.1+ · Free, no ads</span></span>
+      <span class="dl-meta"><svg class="ic" aria-hidden="true"><use href="#i-android"/></svg><span data-i18n="dl.meta">Version 0.1.5 · Android 7.1+ · Free, no ads</span></span>
       <h2 class="display" data-i18n="dl.title">Get Prabhaya</h2>
       <p class="dl-desc" data-i18n="dl.desc">Download the APK directly — no Play Store needed. One file, installs in seconds.</p>
       <a class="dl-btn" href="https://github.com/madhavramini/prabhaya/releases/latest/download/prabhaya.apk"><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl.btn">Download APK</span></a>
@@ -462,7 +462,7 @@ const TE = {
 "features.f4t":"పోషకాహార మార్గదర్శకత్వం","features.f4d":"తల్లులు, పిల్లల కోసం ఆచరణాత్మక ఆహార మరియు పోషకాహార సలహాలు — మీ భాషలో.",
 "features.f5t":"సమీప సహాయం","features.f5d":"మీ సమీపంలోని ఆసుపత్రులు, సేవలను కనుగొనండి — ఒక్క ట్యాప్‌తో మ్యాప్స్‌లో దారులు.",
 "features.f6t":"డబ్బు & భద్రత అవగాహన","features.f6d":"రుణాలు, పొదుపు, సైబర్ మోసాల అవగాహన — సరళమైన మాటల్లో.",
-"dl.meta":"వెర్షన్ 0.1.4 · ఆండ్రాయిడ్ 7.1+ · ఉచితం, ప్రకటనలు లేవు",
+"dl.meta":"వెర్షన్ 0.1.5 · ఆండ్రాయిడ్ 7.1+ · ఉచితం, ప్రకటనలు లేవు",
 "dl.title":"ప్రభయ పొందండి","dl.desc":"APKను నేరుగా డౌన్‌లోడ్ చేయండి — Play Store అవసరం లేదు. ఒకే ఫైల్, క్షణాల్లో ఇన్‌స్టాల్.",
 "dl.btn":"APK డౌన్‌లోడ్","dl.scan":"మీ ఫోన్ కెమెరాతో స్కాన్ చేయండి","dl.releases":"GitHubలో అన్ని రిలీజ్‌లు",
 "dl.note":"Play Store వెలుపల ఇన్‌స్టాల్ చేస్తున్నారా? తెలియని మూలాల నుండి ఇన్‌స్టాల్‌లను అనుమతించమని ఆండ్రాయిడ్ అడుగుతుంది — నేరుగా APK డౌన్‌లోడ్‌కు ఇది సాధారణం.",
@@ -492,7 +492,7 @@ const HI = {
 "features.f4t":"पोषण मार्गदर्शन","features.f4d":"माताओं और बच्चों के लिए व्यावहारिक आहार व पोषण सलाह — आपकी भाषा में।",
 "features.f5t":"नज़दीकी मदद","features.f5d":"नज़दीकी अस्पताल और सेवाएँ खोजें — एक टैप में Maps में रास्ते।",
 "features.f6t":"धन व सुरक्षा जागरूकता","features.f6d":"ऋण, बचत और साइबर धोखाधड़ी की जानकारी — सरल, स्पष्ट भाषा में।",
-"dl.meta":"संस्करण 0.1.4 · Android 7.1+ · मुफ़्त, कोई विज्ञापन नहीं",
+"dl.meta":"संस्करण 0.1.5 · Android 7.1+ · मुफ़्त, कोई विज्ञापन नहीं",
 "dl.title":"प्रभया पाएँ","dl.desc":"APK सीधे डाउनलोड करें — Play Store की ज़रूरत नहीं। एक फ़ाइल, सेकंडों में इंस्टॉल।",
 "dl.btn":"APK डाउनलोड","dl.scan":"अपने फ़ोन के कैमरे से स्कैन करें","dl.releases":"GitHub पर सभी रिलीज़",
 "dl.note":"Play Store के बाहर से इंस्टॉल कर रहे हैं? Android अज्ञात स्रोतों से इंस्टॉल की अनुमति माँगेगा — सीधे APK डाउनलोड के लिए यह सामान्य है।",
@@ -545,6 +545,17 @@ try{
   else { const nav = (navigator.language || "en").slice(0,2).toLowerCase(); if(DICTS[nav]) initial = nav; }
 }catch(e){}
 setLang(initial);
+
+/* ---------- version auto-updates from the latest GitHub release ---------- */
+fetch("https://api.github.com/repos/madhavramini/prabhaya/releases/latest")
+  .then(r => r.ok ? r.json() : Promise.reject(new Error(r.status)))
+  .then(rel => {
+    const v = String(rel.tag_name || "").replace(/^v/i, "");
+    if(!/^\d+\.\d+\.\d+$/.test(v)) return;
+    [EN, TE, HI].forEach(d => { d["dl.meta"] = d["dl.meta"].replace(/\d+\.\d+\.\d+/, v); });
+    setLang(document.documentElement.lang);
+  })
+  .catch(() => {});
 
 /* ---------- scroll: progress, nav shadow, to-top ---------- */
 const bar = document.getElementById("progressBar");
