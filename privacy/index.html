@@ -425,13 +425,13 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
     <path d="M114 200a86 86 0 0 1 172 0" fill="none" stroke="#F6F1E7" stroke-width="2" opacity=".6"/>
   </svg>
   <div class="hero-inner">
-    <span class="eyebrow" data-i18n="hero.eyebrow">Effective 10 November 2026 · Version 1.0</span>
+    <span class="eyebrow" data-i18n="hero.eyebrow">Effective 16 November 2026 · Version 1.1</span>
     <h1 class="display"><span data-i18n="hero.titleA">Your trust,</span><br><em data-i18n="hero.titleB">in plain language.</em></h1>
     <p class="lede" data-i18n="hero.lede">Prabhaya helps rural families find government schemes, health guidance and nearby services — in Telugu, Hindi and English. This page explains exactly what data the app touches, where it goes, and the control you have over it.</p>
     <div class="hero-pills">
       <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-ban"/></svg><span data-i18n="hero.pill1">No ads</span></span>
       <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg><span data-i18n="hero.pill2">No data selling</span></span>
-      <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-chip"/></svg><span data-i18n="hero.pill3">On-device first</span></span>
+      <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-chip"/></svg><span data-i18n="hero.pill3">Online AI, local fallback</span></span>
       <span class="pill"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg><span data-i18n="hero.pill4">No account needed</span></span>
     </div>
     <a class="hero-cta" href="#overview"><span data-i18n="hero.cta">Read the policy</span><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg></a>
@@ -442,8 +442,8 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
   <div class="glance-grid">
     <div class="g-card reveal">
       <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-chip"/></svg></div>
-      <h3 data-i18n="glance.g1t">On-device first</h3>
-      <p data-i18n="glance.g1d">Speech, translation and scheme matching run on your phone whenever possible.</p>
+      <h3 data-i18n="glance.g1t">Cloud-first assistance</h3>
+      <p data-i18n="glance.g1d">When online and configured, the app automatically tries OpenAI through Prabhaya's diagnostics service. If cloud chat is unavailable, it falls back to local guidance.</p>
     </div>
     <div class="g-card reveal">
       <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg></div>
@@ -506,12 +506,12 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
     <section class="policy-section reveal" id="overview">
       <div class="sec-head"><span class="num">01</span><h2 class="display" data-i18n="s1.title">Overview</h2></div>
       <p data-i18n="s1.p1">Prabhaya (“the app”, “we”) is a free digital-awareness app built for Telugu-speaking communities, with a focus on Telangana. It helps you find government schemes, vaccination and nutrition guidance, period care, finance awareness and nearby services.</p>
-      <p data-i18n="s1.p2">Our promise in plain language: collect as little as possible, process on your device when we can, and be explicit about the few times data leaves your phone. This policy is available in English, Telugu and Hindi; if the versions ever differ, the English version prevails.</p>
+      <p data-i18n="s1.p2">We aim to collect as little as possible and explain where data goes. The app automatically prefers cloud-assisted answers when online and the service is configured; if cloud chat is unavailable, it uses the existing local health, location and scheme flows. Online assistance is separate from diagnostics consent. This policy is available in English, Telugu and Hindi; if the versions ever differ, the English version prevails.</p>
     </section>
 
     <section class="policy-section reveal" id="data">
       <div class="sec-head"><span class="num">02</span><h2 class="display" data-i18n="s2.title">What we collect</h2></div>
-      <p data-i18n="s2.intro">Nothing is collected silently. Here is every category of data the app touches, and exactly where it goes.</p>
+      <p data-i18n="s2.intro">Here are the categories of data the app handles and where they go. Online AI processing and stored usage diagnostics are separate data flows.</p>
       <div class="table-wrap"><div class="table-scroll">
         <table id="dataTable">
           <thead><tr>
@@ -524,36 +524,37 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
             <tr>
               <td data-i18n="s2.r1c1">Voice (microphone)</td>
               <td data-i18n="s2.r1c2">Turn your speech into text for hands-free questions</td>
-              <td data-i18n="s2.r1c3">Android's speech recognition; the service may process audio on Google's servers while listening</td>
-              <td><span class="badge b-voice" data-i18n="s2.r1c4">Only during a voice session — we never record or store it</span></td>
+              <td data-i18n="s2.r1c3">Android's speech recognition; the selected system service may send audio to its provider's servers while listening</td>
+              <td><span class="badge b-voice" data-i18n="s2.r1c4">May leave during a voice session — Prabhaya does not store audio recordings</span></td>
             </tr>
             <tr>
               <td data-i18n="s2.r2c1">Chat questions</td>
               <td data-i18n="s2.r2c2">Match you to schemes and generate answers</td>
-              <td data-i18n="s2.r2c3">On-device scheme engine; when cloud answers are on, your question and recent chat context go to OpenAI over HTTPS</td>
-              <td><span class="badge b-cloud" data-i18n="s2.r2c4">Only when cloud answers are used</span></td>
+              <td data-i18n="s2.r2c3">Questions, bounded recent chat and selected public scheme excerpts for chat, plus question or paired follow-up text for embeddings, go through Prabhaya's diagnostics service to OpenAI over HTTPS; local guidance is the fallback</td>
+              <td><span class="badge b-cloud" data-i18n="s2.r2c4">Automatically for online AI requests when configured</span></td>
             </tr>
             <tr>
               <td data-i18n="s2.r3c1">Location</td>
               <td data-i18n="s2.r3c2">Find nearby hospitals and services; open directions in Maps</td>
               <td data-i18n="s2.r3c3">On your device; passed to Google Maps only when you tap a directions link</td>
-              <td><span class="badge b-never" data-i18n="s2.r3c4">Never to our servers</span></td>
+              <td><span class="badge b-never" data-i18n="s2.r3c4">Not uploaded automatically; locations entered in chat follow the chat data flow</span></td>
             </tr>
             <tr>
-              <td data-i18n="s2.r4c1">Health entries &amp; preferences</td>
-              <td data-i18n="s2.r4c2">Remember doses, cycles and settings you mark</td>
-              <td data-i18n="s2.r4c3">Stored only in your phone's private app storage</td>
-              <td><span class="badge b-never" data-i18n="s2.r4c4">Never</span></td>
+              <td data-i18n="s2.r4c1">Health tracker entries</td>
+              <td data-i18n="s2.r4c2">Remember doses and cycles you mark</td>
+              <td data-i18n="s2.r4c3">Stored in your phone's private app storage; health information you enter in chat is handled as chat text instead</td>
+              <td><span class="badge b-never" data-i18n="s2.r4c4">Tracker records are not automatically uploaded</span></td>
             </tr>
             <tr>
               <td data-i18n="s2.r5c1">Usage diagnostics</td>
               <td data-i18n="s2.r5c2">Improve answer quality and fix failures</td>
-              <td data-i18n="s2.r5c3">Pseudonymous events on our research server — message text is never sent</td>
+              <td data-i18n="s2.r5c3">Pseudonymous events stored on our research server — diagnostics payloads contain message hashes, not raw message text; online AI requests are separate</td>
               <td><span class="badge b-opt" data-i18n="s2.r5c4">After you accept terms</span></td>
             </tr>
           </tbody>
         </table>
       </div></div>
+      <p data-i18n="s2.cloud">Online AI requests follow this route: <strong>your phone → Prabhaya's diagnostics service (AI proxy) → OpenAI</strong>. Chat sends your question, selected language, up to the 8 most recent history messages (up to 500 characters each), and selected public scheme excerpts when available. For scheme-search embeddings (numeric representations used to find relevant excerpts), it sends question text, or a paired previous question and current follow-up (each part limited to 500 characters). Scheme excerpt ranking stays on your phone.</p>
     </section>
 
     <section class="policy-section reveal" id="use">
@@ -570,7 +571,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
 
     <section class="policy-section reveal" id="permissions">
       <div class="sec-head"><span class="num">04</span><h2 class="display" data-i18n="s4.title">Permissions</h2></div>
-      <p data-i18n="s4.intro">The app asks for three permissions. Each is tied to a feature you choose to use, and each can be denied.</p>
+      <p data-i18n="s4.intro">The app uses microphone, location and network access. Android asks you to allow microphone and location access; internet access does not have a separate runtime permission prompt.</p>
       <div class="perm-grid">
         <div class="perm-card">
           <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-mic"/></svg></div>
@@ -585,12 +586,12 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
         <div class="perm-card">
           <div class="g-icon"><svg class="ic" aria-hidden="true"><use href="#i-globe"/></svg></div>
           <h3 data-i18n="s4.p3t">Internet &amp; network state</h3>
-          <p data-i18n="s4.p3d">Downloads optional translation models, reaches cloud answers when enabled, and checks connectivity. Core scheme matching works fully offline.</p>
+          <p data-i18n="s4.p3d">Downloads optional translation models, checks connectivity, and automatically requests cloud assistance when online and configured. Diagnostics use the network under the separate consent described below. Core scheme matching works offline; Android speech services may need the network.</p>
         </div>
       </div>
       <div class="note-box">
         <svg class="ic" aria-hidden="true"><use href="#i-info"/></svg>
-        <span data-i18n="s4.note">Change any permission anytime: <code>Android Settings → Apps → Prabhaya → Permissions</code>.</span>
+        <span data-i18n="s4.note">Change microphone or location permissions anytime: <code>Android Settings → Apps → Prabhaya → Permissions</code>.</span>
       </div>
     </section>
 
@@ -600,7 +601,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
       <div class="tp-list">
         <div class="tp-row">
           <span class="tp-name"><span class="dot"></span>OpenAI</span>
-          <span class="tp-desc" data-i18n="s5.t1d">Cloud chat answers and question embeddings, only when cloud mode is on. Your question and a short window of recent chat are sent over HTTPS.</span>
+          <span class="tp-desc" data-i18n="s5.t1d">OpenAI is the sole AI provider for cloud chat and question embeddings. When online and configured, the app automatically sends the text described above through Prabhaya's diagnostics service, not directly to OpenAI. OpenAI may retain inputs and outputs under its own API data policies; the proxy's no-body-storage rule does not mean OpenAI has zero retention.</span>
           <a class="tp-link" href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
         </div>
         <div class="tp-row">
@@ -610,7 +611,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
         </div>
         <div class="tp-row">
           <span class="tp-name"><span class="dot"></span>Android Speech &amp; TTS</span>
-          <span class="tp-desc" data-i18n="s5.t3d">Voice input and read-aloud answers through the Android system's speech services.</span>
+          <span class="tp-desc" data-i18n="s5.t3d">Voice input and read-aloud answers use Android's system speech services. Depending on your installed service and settings, audio or text may be processed over the network under that provider's policy; these services are not guaranteed to work offline.</span>
           <a class="tp-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
         </div>
         <div class="tp-row">
@@ -624,19 +625,21 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
           <a class="tp-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener"><span data-i18n="s5.policy">Policy</span><svg class="ic" aria-hidden="true"><use href="#i-ext"/></svg></a>
         </div>
       </div>
-      <p data-i18n="s5.note"><strong>Your health entries and app preferences are never sent to any of these services.</strong></p>
+      <p data-i18n="s5.note"><strong>The app does not automatically upload your health tracker records.</strong> Health information you type or speak into chat may be sent through Prabhaya's diagnostics service to OpenAI as chat or embedding text. Your selected language also accompanies AI requests. Avoid entering information you do not want processed this way.</p>
     </section>
 
     <section class="policy-section reveal" id="diagnostics">
       <div class="sec-head"><span class="num">06</span><h2 class="display" data-i18n="s6.title">Diagnostics, in detail</h2></div>
       <p data-i18n="s6.p1">When you accept the Terms &amp; Conditions / Privacy Policy during setup, the app sends pseudonymous usage events to our research server so we can improve answer quality.</p>
-      <p data-i18n="s6.p2">An event contains: a random installation ID (not your name or number), a session ID, the event type, your language, app version, Android version, and — for messages — a one-way SHA-256 hash plus character count. <strong>The message text itself never leaves your phone.</strong></p>
+      <p data-i18n="s6.p2">An event contains: a random installation ID (not your name or number), a session ID, the event type, your language, app version, Android version, and — for messages — a one-way SHA-256 hash plus character count. <strong>Diagnostics payloads do not contain raw message text.</strong> This does not apply to online AI requests: those carry the text described above through the same diagnostics service to OpenAI.</p>
       <p data-i18n="s6.p3">Journey events are kept for about 18 months and then purged; anonymous aggregate counts may be kept longer. Uninstalling the app stops collection and deletes the unsent queue on your phone. To withdraw consent or delete data already on the server, contact us below.</p>
+      <p data-i18n="s6.p4">This retention applies to stored pseudonymous diagnostics, not to AI request or reply bodies. Diagnostics consent controls usage events, not automatic online assistance; stopping diagnostics does not turn off cloud chat.</p>
     </section>
 
     <section class="policy-section reveal" id="storage">
       <div class="sec-head"><span class="num">07</span><h2 class="display" data-i18n="s7.title">Storage &amp; security</h2></div>
-      <p data-i18n="s7.p1">Tracker entries, preferences and chat history live in your phone's private app storage. All network requests use HTTPS, keys you add are kept in the app's secure key store, and diagnostics travel under a bearer token. No system is perfect — so we deliberately keep very little that could ever be exposed.</p>
+      <p data-i18n="s7.p1">Tracker entries, preferences and chat history are stored in your phone's private app storage; online requests send the text described above over HTTPS. The OpenAI provider key is held only on Prabhaya's server, never in the app. The app uses a separate, limited app access token for the AI proxy — not your own API key, not an OpenAI key, and not personal account authentication. Diagnostics use a separate credential.</p>
+      <p data-i18n="s7.p2">Prabhaya's AI proxy processes requests, replies and embeddings transiently. It does not persist them in its database or diagnostics events, or log request/reply bodies in application or access logs. Non-content operational status may be logged. OpenAI's own data handling and retention policies still apply. No system can guarantee perfect security.</p>
     </section>
 
     <section class="policy-section reveal" id="rights">
@@ -699,7 +702,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(40px,6vh,72px);padd
     <a class="foot-top" href="#top"><span data-i18n="footer.top">Back to top</span><svg class="ic" aria-hidden="true"><use href="#i-up"/></svg></a>
     <p class="foot-tag" data-i18n="footer.tag">Awareness, in your language.</p>
     <div class="foot-meta">
-      <span data-i18n="footer.meta">Effective 10 November 2026 · Version 1.0</span><br>
+      <span data-i18n="footer.meta">Effective 16 November 2026 · Version 1.1</span><br>
       <span data-i18n="footer.copy">© 2026 Prabhaya · Built for Telangana's communities</span>
     </div>
   </div>
@@ -722,27 +725,28 @@ const TE = {
 "brand.tag":"గోప్యతా విధానం",
 "nav.overview":"అవలోకనం","nav.data":"మీ డేటా","nav.permissions":"అనుమతులు","nav.rights":"మీ ఎంపికలు","nav.contact":"సంప్రదింపు",
 "nav.print":"ప్రింట్ / PDF సేవ్",
-"hero.eyebrow":"అమలు తేదీ: 10 నవంబర్ 2026 · వెర్షన్ 1.0",
+"hero.eyebrow":"అమలు తేదీ: 16 నవంబర్ 2026 · వెర్షన్ 1.1",
 "hero.titleA":"మీ నమ్మకం,","hero.titleB":"సరళమైన మాటల్లో.",
 "hero.lede":"ప్రభయ గ్రామీణ కుటుంబాలకు ప్రభుత్వ పథకాలు, ఆరోగ్య మార్గదర్శకత్వం, సమీప సేవలను కనుగొనడంలో సహాయపడుతుంది — తెలుగు, హిందీ, ఇంగ్లీష్ భాషల్లో. యాప్ ఏ డేటాను తాకుతుందో, అది ఎక్కడికి వెళ్తుందో, దానిపై మీ నియంత్రణ ఏమిటో ఈ పేజీ స్పష్టంగా చెబుతుంది.",
-"hero.pill1":"ప్రకటనలు లేవు","hero.pill2":"డేటా అమ్మడం లేదు","hero.pill3":"ముందుగా ఫోన్‌లోనే","hero.pill4":"ఖాతా అవసరం లేదు",
+"hero.pill1":"ప్రకటనలు లేవు","hero.pill2":"డేటా అమ్మడం లేదు","hero.pill3":"ఆన్‌లైన్ AI, ప్రత్యామ్నాయంగా స్థానిక సహాయం","hero.pill4":"ఖాతా అవసరం లేదు",
 "hero.cta":"విధానం చదవండి",
-"glance.g1t":"ముందుగా మీ ఫోన్‌లోనే","glance.g1d":"సాధ్యమైనంత వరకు మాటలు, అనువాదం, పథకాల పొందిక మీ ఫోన్‌లోనే జరుగుతాయి.",
+"glance.g1t":"ముందుగా క్లౌడ్ సహాయం","glance.g1d":"ఇంటర్నెట్ ఉండి సేవ కాన్ఫిగర్ అయి ఉంటే, యాప్ స్వయంచాలకంగా ప్రభయ డయాగ్నోస్టిక్స్ సేవ ద్వారా OpenAIని ప్రయత్నిస్తుంది. క్లౌడ్ చాట్ అందుబాటులో లేకపోతే స్థానిక మార్గదర్శకత్వాన్ని ఉపయోగిస్తుంది.",
 "glance.g2t":"ఖాతా ఎప్పుడూ అవసరం లేదు","glance.g2d":"సైన్ అప్ లేకుండానే అన్ని ఫీచర్లు పనిచేస్తాయి. మీ పేరు, ఫోన్ నంబర్, చిరునామా మేము ఎప్పుడూ అడగము.",
 "glance.g3t":"ప్రకటనలు, ట్రాకర్లు లేవు","glance.g3d":"ప్రభయలో ప్రకటనలు గానీ, మూడవ పక్ష అనలిటిక్స్ SDKలు గానీ లేవు.",
-"glance.g4t":"సమ్మతితో డయాగ్నోస్టిక్స్","glance.g4d":"సెటప్‌లో మీరు నిబంధనలు / గోప్యతా విధానాన్ని అంగీకరించిన తర్వాతే అనామక వాడక ఈవెంట్లు మొదలవుతాయి.",
+"glance.g4t":"సమ్మతితో డయాగ్నోస్టిక్స్","glance.g4d":"సెటప్‌లో మీరు నిబంధనలు / గోప్యతా విధానాన్ని అంగీకరించిన తర్వాతే పేరుకు బదులుగా IDలతో గుర్తించే వాడక ఈవెంట్లు మొదలవుతాయి.",
 "toc.title":"ఈ పేజీలో","toc.metaT":"ప్రభయ — ఆండ్రాయిడ్ యాప్","toc.metaD":"ఉచితం · తెలుగు / హిందీ / ఇంగ్లీష్ · ప్రకటనలు లేవు",
 "s1.title":"అవలోకనం",
 "s1.p1":"“ప్రభయ” (“యాప్”, “మేము”) తెలుగు మాట్లాడే సముదాయాల కోసం, ముఖ్యంగా తెలంగాణ కోసం రూపొందించిన ఉచిత డిజిటల్ అవగాహన యాప్. ప్రభుత్వ పథకాలు, టీకా & పోషకాహార మార్గదర్శకత్వం, ఋతుక్రమ సంరక్షణ, ఆర్థిక అవగాహన, సమీప సేవలు కనుగొనడంలో ఇది సహాయపడుతుంది.",
-"s1.p2":"మా వాగ్దానం సరళంగా: సాధ్యమైనంత తక్కువ సేకరించడం, సాధ్యమైనంత వరకు మీ ఫోన్‌లోనే ప్రాసెస్ చేయడం, డేటా ఫోన్ దాటే కొన్ని సందర్భాలను స్పష్టంగా చెప్పడం. ఈ విధానం ఇంగ్లీష్, తెలుగు, హిందీలో అందుబాటులో ఉంది; ఏదైనా తేడా వస్తే ఇంగ్లీష్ వెర్షనే ప్రామాణికం.",
+"s1.p2":"సాధ్యమైనంత తక్కువ డేటా సేకరించి, అది ఎక్కడికి వెళ్తుందో వివరించడం మా లక్ష్యం. ఇంటర్నెట్ ఉండి సేవ కాన్ఫిగర్ అయి ఉంటే యాప్ స్వయంచాలకంగా క్లౌడ్ సహాయంతో సమాధానాలకు ప్రాధాన్యత ఇస్తుంది; క్లౌడ్ చాట్ అందుబాటులో లేకపోతే ఇప్పటికే ఉన్న స్థానిక ఆరోగ్య, స్థానం, పథకాల విధానాలను ఉపయోగిస్తుంది. ఆన్‌లైన్ సహాయం డయాగ్నోస్టిక్స్ సమ్మతికి వేరుగా పనిచేస్తుంది. ఈ విధానం ఇంగ్లీష్, తెలుగు, హిందీలో అందుబాటులో ఉంది; ఏదైనా తేడా వస్తే ఇంగ్లీష్ వెర్షనే ప్రామాణికం.",
 "s2.title":"మేము ఏమి సేకరిస్తాము",
-"s2.intro":"ఏదీ నిశ్శబ్దంగా సేకరించబడదు. యాప్ తాకే ప్రతి డేటా రకం, అది ఎక్కడికి వెళ్తుందో ఇక్కడ ఉంది.",
+"s2.intro":"యాప్ నిర్వహించే డేటా రకాలు, అవి ఎక్కడికి వెళ్తాయో ఇక్కడ వివరించాము. ఆన్‌లైన్ AI ప్రాసెసింగ్, నిల్వ చేసే వాడక డయాగ్నోస్టిక్స్ వేర్వేరు డేటా ప్రవాహాలు.",
 "s2.th1":"డేటా","s2.th2":"ఎందుకు అవసరం","s2.th3":"ఎక్కడ ప్రాసెస్ అవుతుంది","s2.th4":"ఫోన్ దాటుతుందా?",
-"s2.r1c1":"మాటలు (మైక్రోఫోన్)","s2.r1c2":"చేతులు లేకుండా ప్రశ్నలు అడగడానికి మీ మాటలను టెక్స్ట్‌గా మార్చడం","s2.r1c3":"ఆండ్రాయిడ్ స్పీచ్ రికగ్నిషన్; మీరు మాట్లాడుతున్నప్పుడు ఆ సేవ ఆడియోను Google సర్వర్లలో ప్రాసెస్ చేయవచ్చు","s2.r1c4":"వాయిస్ సెషన్ సమయంలో మాత్రమే — మేము ఎప్పుడూ రికార్డ్ లేదా నిల్వ చేయము",
-"s2.r2c1":"చాట్ ప్రశ్నలు","s2.r2c2":"మీకు పథకాలు పొందించి సమాధానాలు ఇవ్వడం","s2.r2c3":"ఫోన్‌లోని పథకాల ఇంజిన్; క్లౌడ్ సమాధానాలు ఆన్‌లో ఉన్నప్పుడు మీ ప్రశ్న, ఇటీవలి చాట్ సందర్భం HTTPS ద్వారా OpenAIకి వెళ్తాయి","s2.r2c4":"క్లౌడ్ సమాధానాలు వాడినప్పుడు మాత్రమే",
-"s2.r3c1":"స్థానం","s2.r3c2":"సమీప ఆసుపత్రులు, సేవలు కనుగొనడం; మ్యాప్స్‌లో దారులు తెరవడం","s2.r3c3":"మీ ఫోన్‌లోనే; మీరు దారి లింక్ నొక్కినప్పుడు మాత్రమే Google Maps‌కు ఇవ్వబడుతుంది","s2.r3c4":"మా సర్వర్లకు ఎప్పుడూ కాదు",
-"s2.r4c1":"ఆరోగ్య నమోదులు & ప్రాధాన్యతలు","s2.r4c2":"మీరు గుర్తించిన డోసులు, చక్రాలు, సెట్టింగ్‌లు గుర్తుంచుకోవడం","s2.r4c3":"మీ ఫోన్ ప్రైవేట్ యాప్ స్టోరేజ్‌లో మాత్రమే నిల్వ","s2.r4c4":"ఎప్పుడూ లేదు",
-"s2.r5c1":"వాడక డయాగ్నోస్టిక్స్","s2.r5c2":"సమాధానాల నాణ్యత పెంచడం, లోపాలు సరిచేయడం","s2.r5c3":"మా పరిశోధన సర్వర్‌కు అనామక ఈవెంట్లు — సందేశ టెక్స్ట్ ఎప్పుడూ పంపబడదు","s2.r5c4":"మీరు నిబంధనలు అంగీకరించాక",
+"s2.r1c1":"మాటలు (మైక్రోఫోన్)","s2.r1c2":"చేతులు లేకుండా ప్రశ్నలు అడగడానికి మీ మాటలను టెక్స్ట్‌గా మార్చడం","s2.r1c3":"ఆండ్రాయిడ్ స్పీచ్ రికగ్నిషన్; మీరు మాట్లాడుతున్నప్పుడు ఎంచుకున్న సిస్టమ్ సేవ ఆడియోను తన సేవాదారు సర్వర్లకు పంపవచ్చు","s2.r1c4":"వాయిస్ సెషన్‌లో ఫోన్ దాటవచ్చు — ప్రభయ ఆడియో రికార్డింగ్‌లను నిల్వ చేయదు",
+"s2.r2c1":"చాట్ ప్రశ్నలు","s2.r2c2":"మీకు పథకాలు పొందించి సమాధానాలు ఇవ్వడం","s2.r2c3":"చాట్ కోసం ప్రశ్నలు, పరిమిత ఇటీవలి చాట్, ఎంపిక చేసిన ప్రజలకు అందుబాటులో ఉన్న పథకాల భాగాలు, అలాగే ఎంబెడ్డింగ్‌ల కోసం ప్రశ్న లేదా జత చేసిన తదుపరి ప్రశ్న టెక్స్ట్, HTTPS ద్వారా ప్రభయ డయాగ్నోస్టిక్స్ సేవ మీదుగా OpenAIకి వెళ్తాయి; స్థానిక మార్గదర్శకత్వం ప్రత్యామ్నాయం","s2.r2c4":"కాన్ఫిగర్ అయి ఉన్నప్పుడు ఆన్‌లైన్ AI అభ్యర్థనల కోసం స్వయంచాలకంగా",
+"s2.r3c1":"స్థానం","s2.r3c2":"సమీప ఆసుపత్రులు, సేవలు కనుగొనడం; మ్యాప్స్‌లో దారులు తెరవడం","s2.r3c3":"మీ ఫోన్‌లోనే; మీరు దారి లింక్ నొక్కినప్పుడు మాత్రమే Google Maps‌కు ఇవ్వబడుతుంది","s2.r3c4":"స్వయంచాలకంగా అప్‌లోడ్ కాదు; చాట్‌లో తెలిపిన ప్రదేశాలు చాట్ డేటాగా పంపబడతాయి",
+"s2.r4c1":"ఆరోగ్య ట్రాకర్ నమోదులు","s2.r4c2":"మీరు గుర్తించిన డోసులు, చక్రాలు గుర్తుంచుకోవడం","s2.r4c3":"మీ ఫోన్ ప్రైవేట్ యాప్ స్టోరేజ్‌లో నిల్వ; చాట్‌లో నమోదు చేసే ఆరోగ్య సమాచారం మాత్రం చాట్ టెక్స్ట్‌గా నిర్వహించబడుతుంది","s2.r4c4":"ట్రాకర్ రికార్డులు స్వయంచాలకంగా అప్‌లోడ్ కావు",
+"s2.r5c1":"వాడక డయాగ్నోస్టిక్స్","s2.r5c2":"సమాధానాల నాణ్యత పెంచడం, లోపాలు సరిచేయడం","s2.r5c3":"మా పరిశోధన సర్వర్‌లో పేరుకు బదులుగా IDలతో గుర్తించే ఈవెంట్లు నిల్వ అవుతాయి — డయాగ్నోస్టిక్స్ డేటాలో సందేశ హాష్‌లు ఉంటాయి, అసలు సందేశ టెక్స్ట్ కాదు; ఆన్‌లైన్ AI అభ్యర్థనలు వేరు","s2.r5c4":"మీరు నిబంధనలు అంగీకరించాక",
+"s2.cloud":"ఆన్‌లైన్ AI అభ్యర్థనలు వెళ్లే మార్గం: <strong>మీ ఫోన్ → ప్రభయ డయాగ్నోస్టిక్స్ సేవ (AI ప్రాక్సీ) → OpenAI</strong>. చాట్ కోసం మీ ప్రశ్న, ఎంచుకున్న భాష, ఇటీవలి చరిత్రలో గరిష్ఠంగా 8 సందేశాలు (ఒక్కొక్కటి గరిష్ఠంగా 500 అక్షరాలు), అందుబాటులో ఉంటే ఎంపిక చేసిన ప్రజలకు అందుబాటులో ఉన్న పథకాల భాగాలు పంపబడతాయి. పథకాల శోధన ఎంబెడ్డింగ్‌ల కోసం (సంబంధిత భాగాలను కనుగొనడానికి వాడే సంఖ్యా రూపాలు) ప్రశ్న టెక్స్ట్ లేదా జత చేసిన మునుపటి ప్రశ్న, ప్రస్తుత తదుపరి ప్రశ్న పంపబడతాయి (ప్రతి భాగం 500 అక్షరాలకు పరిమితం). పథకాల భాగాలకు ర్యాంకులు ఇవ్వడం మీ ఫోన్‌లోనే జరుగుతుంది.",
 "s3.title":"సమాచారాన్ని ఎలా ఉపయోగిస్తాము",
 "s3.b1":"మీ ప్రశ్నలకు సమాధానం ఇవ్వడం, మీరు అర్హులు కాగల ప్రభుత్వ పథకాలతో పొందించడం.",
 "s3.b2":"సమీప కేంద్రాలను చూపడం, మీరు దారులు అడిగినప్పుడు మ్యాప్స్ తెరవడం.",
@@ -751,26 +755,28 @@ const TE = {
 "s3.b5":"ఏ ఫీచర్లు ఎక్కువ ఉపయోగపడుతున్నాయో తెలుసుకోవడం, విఫలమైనవాటిని సరిచేయడం.",
 "s3.closing":"మేము డేటా అమ్మము, ప్రకటనలు చూపము, మార్కెటింగ్ ప్రొఫైల్స్ నిర్మించము. ఎప్పుడూ.",
 "s4.title":"అనుమతులు",
-"s4.intro":"యాప్ మూడు అనుమతులు అడుగుతుంది. ప్రతిదీ మీరు వాడే ఫీచర్‌కు సంబంధించినదే; ప్రతిదీ నిరాకరించవచ్చు.",
+"s4.intro":"యాప్ మైక్రోఫోన్, స్థానం, నెట్‌వర్క్ యాక్సెస్‌ను ఉపయోగిస్తుంది. మైక్రోఫోన్, స్థానం కోసం ఆండ్రాయిడ్ మీ అనుమతి అడుగుతుంది; ఇంటర్నెట్ యాక్సెస్‌కు యాప్ నడుస్తున్నప్పుడు ప్రత్యేక అనుమతి ప్రశ్న ఉండదు.",
 "s4.p1t":"మైక్రోఫోన్","s4.p1d":"మీరు వాయిస్ సెషన్‌లో ప్రశ్నలు అడిగే సమయంలో మాత్రమే. నిరాకరిస్తే టైపింగ్ మామూలుగా పనిచేస్తుంది.",
 "s4.p2t":"స్థానం","s4.p2d":"సమీప సహాయం, ఆరోగ్య దారుల కోసం మాత్రమే. నిరాకరిస్తే మీ స్థానాన్ని చేతితో నమోదు చేయవచ్చు.",
-"s4.p3t":"ఇంటర్నెట్ & నెట్‌వర్క్ స్థితి","s4.p3d":"ఐచ్ఛిక అనువాద మాడల్స్ డౌన్‌లోడ్, ఆన్‌లో ఉంటే క్లౌడ్ సమాధానాలు, కనెక్టివిటీ తనిఖీకి. ముఖ్య పథకాల పొందిక పూర్తిగా ఆఫ్‌లైన్‌లో పనిచేస్తుంది.",
-"s4.note":"ఏ అనుమతినైనా ఎప్పుడైనా మార్చవచ్చు: <code>Android Settings → Apps → Prabhaya → Permissions</code>.",
+"s4.p3t":"ఇంటర్నెట్ & నెట్‌వర్క్ స్థితి","s4.p3d":"ఐచ్ఛిక అనువాద మాడల్స్‌ను డౌన్‌లోడ్ చేస్తుంది, కనెక్టివిటీని తనిఖీ చేస్తుంది, ఇంటర్నెట్ ఉండి సేవ కాన్ఫిగర్ అయి ఉంటే స్వయంచాలకంగా క్లౌడ్ సహాయం కోరుతుంది. కింద వివరించిన ప్రత్యేక సమ్మతి ప్రకారం డయాగ్నోస్టిక్స్ నెట్‌వర్క్‌ను వాడతాయి. ముఖ్య పథకాల పొందిక ఆఫ్‌లైన్‌లో పనిచేస్తుంది; ఆండ్రాయిడ్ స్పీచ్ సేవలకు నెట్‌వర్క్ అవసరం కావచ్చు.",
+"s4.note":"మైక్రోఫోన్ లేదా స్థానం అనుమతులను ఎప్పుడైనా మార్చవచ్చు: <code>Android Settings → Apps → Prabhaya → Permissions</code>.",
 "s5.title":"మూడవ పక్ష సేవలు",
 "s5.intro":"కొన్ని ఫీచర్లు విశ్వసనీయ సేవాదారులపై ఆధారపడతాయి. అప్పుడు మీ డేటా ఆ సంస్థ సొంత విధానం ప్రకారం నిర్వహించబడుతుంది:",
-"s5.t1d":"క్లౌడ్ మోడ్ ఆన్‌లో ఉన్నప్పుడు మాత్రమే క్లౌడ్ చాట్ సమాధానాలు, ప్రశ్న ఎంబెడ్డింగ్‌లు. మీ ప్రశ్న, ఇటీవలి చాట్‌లో కొంత భాగం HTTPS ద్వారా పంపబడుతుంది.",
+"s5.t1d":"క్లౌడ్ చాట్, ప్రశ్న ఎంబెడ్డింగ్‌లకు ఏకైక AI సేవాదారు OpenAI. ఇంటర్నెట్ ఉండి సేవ కాన్ఫిగర్ అయి ఉంటే, యాప్ పైన వివరించిన టెక్స్ట్‌ను స్వయంచాలకంగా ప్రభయ డయాగ్నోస్టిక్స్ సేవ ద్వారా పంపుతుంది, నేరుగా OpenAIకి కాదు. OpenAI తన API డేటా విధానాల ప్రకారం ఇన్‌పుట్‌లు, అవుట్‌పుట్‌లను నిల్వ ఉంచవచ్చు; ప్రాక్సీ అభ్యర్థన/సమాధానాల విషయాన్ని నిల్వ చేయదనే నియమం, OpenAI కూడా ఏదీ నిల్వ చేయదని అర్థం కాదు.",
 "s5.t2d":"ఫోన్‌లోనే తెలుగు ↔ ఇంగ్లీష్ అనువాదం. మాడల్స్ ఒక్కసారి డౌన్‌లోడ్ అవుతాయి; ఆ తర్వాత అనువాదం మీ ఫోన్‌లో ఆఫ్‌లైన్‌లో జరుగుతుంది.",
-"s5.t3d":"ఆండ్రాయిడ్ సిస్టమ్ స్పీచ్ సేవల ద్వారా వాయిస్ ఇన్‌పుట్, సమాధానాలను చదివి వినిపించడం.",
+"s5.t3d":"వాయిస్ ఇన్‌పుట్, సమాధానాలను చదివి వినిపించడం ఆండ్రాయిడ్ సిస్టమ్ స్పీచ్ సేవలను ఉపయోగిస్తాయి. ఇన్‌స్టాల్ చేసిన సేవ, సెట్టింగ్‌లను బట్టి ఆడియో లేదా టెక్స్ట్ ఆ సేవాదారు విధానం ప్రకారం నెట్‌వర్క్ ద్వారా ప్రాసెస్ కావచ్చు; ఈ సేవలు ఆఫ్‌లైన్‌లో పనిచేస్తాయని హామీ లేదు.",
 "s5.t4d":"సమీప శోధన కోసం పరికర స్థానం — మీ ఫోన్‌లోనే ప్రాసెస్ అవుతుంది.",
 "s5.t5d":"మీరు దారి లింక్ నొక్కినప్పుడు మాత్రమే తెరుచుకుంటుంది; మీరు ఎంచుకున్న స్థానం Maps‌కు ఇవ్వబడుతుంది.",
 "s5.policy":"విధానం",
-"s5.note":"<strong>మీ ఆరోగ్య నమోదులు, యాప్ ప్రాధాన్యతలు ఈ సేవలకు ఎప్పుడూ పంపబడవు.</strong>",
+"s5.note":"<strong>యాప్ మీ ఆరోగ్య ట్రాకర్ రికార్డులను స్వయంచాలకంగా అప్‌లోడ్ చేయదు.</strong> మీరు చాట్‌లో టైప్ చేసిన లేదా మాట్లాడి నమోదు చేసిన ఆరోగ్య సమాచారం చాట్ లేదా ఎంబెడ్డింగ్ టెక్స్ట్‌గా ప్రభయ డయాగ్నోస్టిక్స్ సేవ ద్వారా OpenAIకి పంపబడవచ్చు. మీరు ఎంచుకున్న భాష కూడా AI అభ్యర్థనలతో పంపబడుతుంది. ఇలా ప్రాసెస్ చేయకూడదనుకునే సమాచారాన్ని నమోదు చేయవద్దు.",
 "s6.title":"డయాగ్నోస్టిక్స్ — వివరంగా",
-"s6.p1":"సెటప్‌లో మీరు నిబంధనలు / గోప్యతా విధానాన్ని అంగీకరించినప్పుడు, సమాధానాల నాణ్యత మెరుగుపరచడానికి యాప్ అనామక వాడక ఈవెంట్లను మా పరిశోధన సర్వర్‌కు పంపుతుంది.",
-"s6.p2":"ఒక ఈవెంట్‌లో ఉండేవి: యాదృచ్ఛిక ఇన్‌స్టాలేషన్ ID (మీ పేరు లేదా నంబర్ కాదు), సెషన్ ID, ఈవెంట్ రకం, మీ భాష, యాప్ వెర్షన్, ఆండ్రాయిడ్ వెర్షన్, సందేశాలకు — ఏకముఖ SHA-256 హాష్ మరియు అక్షరాల సంఖ్య. <strong>సందేశ టెక్స్ట్ ఎప్పుడూ మీ ఫోన్ దాటదు.</strong>",
+"s6.p1":"సెటప్‌లో మీరు నిబంధనలు / గోప్యతా విధానాన్ని అంగీకరించినప్పుడు, సమాధానాల నాణ్యత మెరుగుపరచడానికి యాప్ పేరుకు బదులుగా IDలతో గుర్తించే వాడక ఈవెంట్లను మా పరిశోధన సర్వర్‌కు పంపుతుంది.",
+"s6.p2":"ఒక ఈవెంట్‌లో ఉండేవి: యాదృచ్ఛిక ఇన్‌స్టాలేషన్ ID (మీ పేరు లేదా నంబర్ కాదు), సెషన్ ID, ఈవెంట్ రకం, మీ భాష, యాప్ వెర్షన్, ఆండ్రాయిడ్ వెర్షన్, సందేశాలకు — ఏకముఖ SHA-256 హాష్ మరియు అక్షరాల సంఖ్య. <strong>డయాగ్నోస్టిక్స్ డేటాలో అసలు సందేశ టెక్స్ట్ ఉండదు.</strong> ఇది ఆన్‌లైన్ AI అభ్యర్థనలకు వర్తించదు: అవి పైన వివరించిన టెక్స్ట్‌ను అదే డయాగ్నోస్టిక్స్ సేవ ద్వారా OpenAIకి పంపుతాయి.",
 "s6.p3":"జర్నీ ఈవెంట్లు సుమారు 18 నెలలు ఉంచి తర్వాత తొలగించబడతాయి; అనామక మొత్తం లెక్కలు ఎక్కువ కాలం ఉంచవచ్చు. యాప్‌ను అన్‌ఇన్‌స్టాల్ చేస్తే సేకరణ ఆగి, ఫోన్‌లోని పంపని క్యూ తొలగించబడుతుంది. సమ్మతి ఉపసంహరించుకోవాలన్నా, సర్వర్‌లోని డేటా తొలగించాలన్నా కింద మమ్మల్ని సంప్రదించండి.",
+"s6.p4":"ఈ నిల్వ కాలం పేరుకు బదులుగా IDలతో గుర్తించే డయాగ్నోస్టిక్స్‌కు వర్తిస్తుంది, AI అభ్యర్థన లేదా సమాధానాల విషయానికి కాదు. డయాగ్నోస్టిక్స్ సమ్మతి వాడక ఈవెంట్లను నియంత్రిస్తుంది, స్వయంచాలక ఆన్‌లైన్ సహాయాన్ని కాదు; డయాగ్నోస్టిక్స్‌ను ఆపడం క్లౌడ్ చాట్‌ను ఆపదు.",
 "s7.title":"నిల్వ & భద్రత",
-"s7.p1":"ట్రాకర్ నమోదులు, ప్రాధాన్యతలు, చాట్ చరిత్ర మీ ఫోన్ ప్రైవేట్ యాప్ స్టోరేజ్‌లో ఉంటాయి. అన్ని నెట్‌వర్క్ అభ్యర్థనలు HTTPS వాడతాయి, మీరు జోడించిన కీలు యాప్ సురక్షిత కీ స్టోర్‌లో ఉంటాయి, డయాగ్నోస్టిక్స్ బేరర్ టోకెన్‌తో ప్రయాణిస్తాయి. ఏ వ్యవస్థా పరిపూర్ణం కాదు — అందుకే బయటపడే అవకాశం ఉన్నది చాలా తక్కువగా ఉంచేలా మేము ఉద్దేశపూర్వకంగా రూపొందించాము.",
+"s7.p1":"ట్రాకర్ నమోదులు, ప్రాధాన్యతలు, చాట్ చరిత్ర మీ ఫోన్ ప్రైవేట్ యాప్ స్టోరేజ్‌లో నిల్వ అవుతాయి; ఆన్‌లైన్ అభ్యర్థనలు పైన వివరించిన టెక్స్ట్‌ను HTTPS ద్వారా పంపుతాయి. OpenAI సేవాదారు కీ ప్రభయ సర్వర్‌లో మాత్రమే ఉంటుంది, యాప్‌లో ఎప్పుడూ ఉండదు. AI ప్రాక్సీ కోసం యాప్ వేరుగా పరిమిత యాప్ యాక్సెస్ టోకెన్‌ను వాడుతుంది — అది మీ స్వంత API కీ కాదు, OpenAI కీ కాదు, వ్యక్తిగత ఖాతా గుర్తింపు నిర్ధారణ కాదు. డయాగ్నోస్టిక్స్ వేరే యాక్సెస్ గుర్తింపును ఉపయోగిస్తాయి.",
+"s7.p2":"ప్రభయ AI ప్రాక్సీ అభ్యర్థనలు, సమాధానాలు, ఎంబెడ్డింగ్‌లను తాత్కాలికంగా ప్రాసెస్ చేస్తుంది. వాటిని తన డేటాబేస్‌లో లేదా డయాగ్నోస్టిక్స్ ఈవెంట్లలో నిల్వ చేయదు; అప్లికేషన్ లేదా యాక్సెస్ లాగ్‌లలో అభ్యర్థన/సమాధానాల విషయాన్ని నమోదు చేయదు. సందేశ విషయం లేని సేవ పనితీరు స్థితిని లాగ్ చేయవచ్చు. OpenAI సొంత డేటా నిర్వహణ, నిల్వ విధానాలు వర్తిస్తాయి. సంపూర్ణ భద్రతకు ఏ వ్యవస్థలోనూ హామీ లేదు.",
 "s8.title":"మీ హక్కులు & ఎంపికలు",
 "s8.intro":"ప్రతి డేటాపై నియంత్రణ మీదే:",
 "s8.r1t":"స్థానిక డేటా చూడండి & తొలగించండి","s8.r1d":"మీ ఫోన్‌లో ఉన్నదంతా మీదే. Settings → Apps → Prabhaya → Storage → Clear storage ద్వారా తొలగించండి, లేదా యాప్‌ను అన్‌ఇన్‌స్టాల్ చేయండి.",
@@ -788,7 +794,7 @@ const TE = {
 "s11.btn":"GitHub issue తెరవండి",
 "s11.note":"దయచేసి సున్నితమైన వివరాలు (ఆరోగ్య రికార్డులు, ID నంబర్లు) పబ్లిక్ issueలో పెట్టవద్దు — ప్రైవేట్ మార్గం కోసం అక్కడ మమ్మల్ని అడగండి.",
 "footer.top":"పైకి","footer.tag":"అవగాహన — మీ భాషలో.",
-"footer.meta":"అమలు తేదీ: 10 నవంబర్ 2026 · వెర్షన్ 1.0",
+"footer.meta":"అమలు తేదీ: 16 నవంబర్ 2026 · వెర్షన్ 1.1",
 "footer.copy":"© 2026 ప్రభయ · తెలంగాణ సముదాయాల కోసం నిర్మించబడింది"
 };
 
@@ -797,27 +803,28 @@ const HI = {
 "brand.tag":"गोपनीयता नीति",
 "nav.overview":"अवलोकन","nav.data":"आपका डेटा","nav.permissions":"अनुमतियाँ","nav.rights":"आपके विकल्प","nav.contact":"संपर्क",
 "nav.print":"प्रिंट / PDF सहेजें",
-"hero.eyebrow":"प्रभावी तिथि: 10 नवंबर 2026 · संस्करण 1.0",
+"hero.eyebrow":"प्रभावी तिथि: 16 नवंबर 2026 · संस्करण 1.1",
 "hero.titleA":"आपका भरोसा,","hero.titleB":"सरल शब्दों में।",
 "hero.lede":"प्रभया ग्रामीण परिवारों को सरकारी योजनाएँ, स्वास्थ्य मार्गदर्शन और नज़दीकी सेवाएँ खोजने में मदद करता है — तेलुगु, हिंदी और अंग्रेज़ी में। यह पेज साफ़-साफ़ बताता है कि ऐप किस डेटा को छूता है, वह कहाँ जाता है, और उस पर आपका क्या नियंत्रण है।",
-"hero.pill1":"कोई विज्ञापन नहीं","hero.pill2":"डेटा बेचा नहीं जाता","hero.pill3":"पहले आपके फ़ोन पर","hero.pill4":"खाते की ज़रूरत नहीं",
+"hero.pill1":"कोई विज्ञापन नहीं","hero.pill2":"डेटा बेचा नहीं जाता","hero.pill3":"ऑनलाइन AI, विकल्प में स्थानीय मदद","hero.pill4":"खाते की ज़रूरत नहीं",
 "hero.cta":"नीति पढ़ें",
-"glance.g1t":"पहले आपके डिवाइस पर","glance.g1d":"जहाँ तक संभव हो, आवाज़, अनुवाद और योजना मिलान आपके फ़ोन पर ही चलते हैं।",
+"glance.g1t":"पहले क्लाउड सहायता","glance.g1d":"इंटरनेट होने और सेवा कॉन्फ़िगर होने पर ऐप अपने आप प्रभया की डायग्नोस्टिक्स सेवा के ज़रिए OpenAI आज़माता है। क्लाउड चैट उपलब्ध न हो तो स्थानीय मार्गदर्शन का उपयोग करता है।",
 "glance.g2t":"कभी खाता नहीं","glance.g2d":"बिना साइन-अप के हर सुविधा चलती है। हम आपका नाम, फ़ोन नंबर या पता कभी नहीं माँगते।",
 "glance.g3t":"कोई विज्ञापन, कोई ट्रैकर नहीं","glance.g3d":"प्रभया में न विज्ञापन हैं, न तीसरे पक्ष के एनालिटिक्स SDK।",
 "glance.g4t":"सहमति के बाद डायग्नोस्टिक्स","glance.g4d":"सेटअप में शर्तें / गोपनीयता नीति स्वीकार करने के बाद ही छद्मनामी उपयोग इवेंट शुरू होते हैं।",
 "toc.title":"इस पेज पर","toc.metaT":"प्रभया — Android ऐप","toc.metaD":"मुफ़्त · तेलुगु / हिंदी / अंग्रेज़ी · कोई विज्ञापन नहीं",
 "s1.title":"अवलोकन",
 "s1.p1":"प्रभया (“ऐप”, “हम”) तेलुगु भाषी समुदायों के लिए बनाया गया एक मुफ़्त डिजिटल जागरूकता ऐप है, जिसका ध्यान तेलंगाना पर है। यह सरकारी योजनाएँ, टीकाकरण व पोषण मार्गदर्शन, मासिक धर्म देखभाल, वित्तीय जागरूकता और नज़दीकी सेवाएँ खोजने में मदद करता है।",
-"s1.p2":"हमारा वादा सरल शब्दों में: जितना कम हो सके उतना संग्रह करना, जहाँ हो सके आपके डिवाइस पर ही प्रोसेस करना, और डेटा फ़ोन से बाहर जाने के कुछ मामलों को साफ़ बताना। यह नीति अंग्रेज़ी, तेलुगु और हिंदी में उपलब्ध है; कोई अंतर होने पर अंग्रेज़ी संस्करण मान्य होगा।",
+"s1.p2":"हमारा लक्ष्य जितना हो सके कम डेटा संग्रह करना और यह बताना है कि वह कहाँ जाता है। इंटरनेट होने और सेवा कॉन्फ़िगर होने पर ऐप अपने आप क्लाउड-सहायता वाले जवाबों को प्राथमिकता देता है; क्लाउड चैट उपलब्ध न हो तो मौजूदा स्थानीय स्वास्थ्य, स्थान और योजना प्रक्रियाओं का उपयोग करता है। ऑनलाइन सहायता डायग्नोस्टिक्स की सहमति से अलग है। यह नीति अंग्रेज़ी, तेलुगु और हिंदी में उपलब्ध है; कोई अंतर होने पर अंग्रेज़ी संस्करण मान्य होगा।",
 "s2.title":"हम क्या संग्रह करते हैं",
-"s2.intro":"कुछ भी चुपचाप संग्रह नहीं होता। ऐप जिस भी डेटा को छूता है और वह कहाँ जाता है, यह रहा पूरा ब्यौरा।",
+"s2.intro":"यहाँ ऐप द्वारा संभाले जाने वाले डेटा के प्रकार और उनके गंतव्य बताए गए हैं। ऑनलाइन AI प्रोसेसिंग और संग्रहीत उपयोग डायग्नोस्टिक्स अलग-अलग डेटा प्रवाह हैं।",
 "s2.th1":"डेटा","s2.th2":"क्यों ज़रूरी है","s2.th3":"कहाँ प्रोसेस होता है","s2.th4":"फ़ोन से बाहर जाता है?",
-"s2.r1c1":"आवाज़ (माइक्रोफ़ोन)","s2.r1c2":"बिना हाथ लगाए सवाल पूछने के लिए आवाज़ को टेक्स्ट में बदलना","s2.r1c3":"Android की स्पीच रिकग्निशन; सुनते समय यह सेवा ऑडियो को Google के सर्वर पर प्रोसेस कर सकती है","s2.r1c4":"सिर्फ़ वॉइस सत्र के दौरान — हम इसे कभी रिकॉर्ड या संग्रहीत नहीं करते",
-"s2.r2c1":"चैट सवाल","s2.r2c2":"योजनाओं से मिलान और जवाब तैयार करना","s2.r2c3":"डिवाइस पर योजना इंजन; क्लाउड जवाब चालू होने पर आपका सवाल और हाल की चैट HTTPS से OpenAI को जाती है","s2.r2c4":"सिर्फ़ क्लाउड जवाब इस्तेमाल होने पर",
-"s2.r3c1":"स्थान","s2.r3c2":"नज़दीकी अस्पताल व सेवाएँ खोजना; Maps में रास्ते खोलना","s2.r3c3":"आपके डिवाइस पर; सिर्फ़ रास्ते के लिंक पर टैप करने पर Google Maps को दिया जाता है","s2.r3c4":"हमारे सर्वर पर कभी नहीं",
-"s2.r4c1":"स्वास्थ्य प्रविष्टियाँ व प्राथमिकताएँ","s2.r4c2":"आपके दर्ज किए डोज़, चक्र और सेटिंग्स याद रखना","s2.r4c3":"सिर्फ़ आपके फ़ोन के निजी ऐप स्टोरेज में","s2.r4c4":"कभी नहीं",
-"s2.r5c1":"उपयोग डायగ్నోస్టిक्स","s2.r5c2":"जवाबों की गुणवत्ता सुधारना और ख़ामियाँ ठीक करना","s2.r5c3":"हमारे रिसर्च सर्वर पर छद्मनामी इवेंट — संदेश का टेक्स्ट कभी नहीं भेजा जाता","s2.r5c4":"शर्तें स्वीकार करने के बाद",
+"s2.r1c1":"आवाज़ (माइक्रोफ़ोन)","s2.r1c2":"बिना हाथ लगाए सवाल पूछने के लिए आवाज़ को टेक्स्ट में बदलना","s2.r1c3":"Android की स्पीच रिकग्निशन; सुनते समय चुनी गई सिस्टम सेवा ऑडियो अपने प्रदाता के सर्वर को भेज सकती है","s2.r1c4":"वॉइस सत्र के दौरान बाहर जा सकती है — प्रभया ऑडियो रिकॉर्डिंग संग्रहीत नहीं करता",
+"s2.r2c1":"चैट सवाल","s2.r2c2":"योजनाओं से मिलान और जवाब तैयार करना","s2.r2c3":"चैट के लिए सवाल, सीमित हाल की चैट और चुने हुए सार्वजनिक योजना अंश, तथा एम्बेडिंग के लिए सवाल या जोड़े गए अनुवर्ती सवाल का टेक्स्ट, HTTPS से प्रभया की डायग्नोस्टिक्स सेवा के ज़रिए OpenAI को जाते हैं; स्थानीय मार्गदर्शन विकल्प है","s2.r2c4":"कॉन्फ़िगर होने पर ऑनलाइन AI अनुरोधों के लिए अपने आप",
+"s2.r3c1":"स्थान","s2.r3c2":"नज़दीकी अस्पताल व सेवाएँ खोजना; Maps में रास्ते खोलना","s2.r3c3":"आपके डिवाइस पर; सिर्फ़ रास्ते के लिंक पर टैप करने पर Google Maps को दिया जाता है","s2.r3c4":"अपने आप अपलोड नहीं होता; चैट में बताया स्थान चैट डेटा के रूप में भेजा जाता है",
+"s2.r4c1":"स्वास्थ्य ट्रैकर प्रविष्टियाँ","s2.r4c2":"आपके दर्ज किए डोज़ और चक्र याद रखना","s2.r4c3":"आपके फ़ोन के निजी ऐप स्टोरेज में; चैट में दर्ज स्वास्थ्य जानकारी को इसके बजाय चैट टेक्स्ट की तरह संभाला जाता है","s2.r4c4":"ट्रैकर रिकॉर्ड अपने आप अपलोड नहीं होते",
+"s2.r5c1":"उपयोग डायग्नोस्टिक्स","s2.r5c2":"जवाबों की गुणवत्ता सुधारना और ख़ामियाँ ठीक करना","s2.r5c3":"हमारे रिसर्च सर्वर पर संग्रहीत छद्मनामी इवेंट — डायग्नोस्टिक्स डेटा में संदेशों के हैश होते हैं, मूल संदेश टेक्स्ट नहीं; ऑनलाइन AI अनुरोध अलग हैं","s2.r5c4":"शर्तें स्वीकार करने के बाद",
+"s2.cloud":"ऑनलाइन AI अनुरोधों का रास्ता है: <strong>आपका फ़ोन → प्रभया की डायग्नोस्टिक्स सेवा (AI प्रॉक्सी) → OpenAI</strong>। चैट के लिए आपका सवाल, चुनी हुई भाषा, इतिहास के सबसे हाल के अधिकतम 8 संदेश (हर संदेश अधिकतम 500 अक्षर), और उपलब्ध होने पर चुने हुए सार्वजनिक योजना अंश भेजे जाते हैं। योजना खोज की एम्बेडिंग (संबंधित अंश खोजने के लिए संख्यात्मक रूप) के लिए सवाल का टेक्स्ट, या पिछला सवाल और मौजूदा अनुवर्ती सवाल जोड़े में भेजे जाते हैं (हर भाग अधिकतम 500 अक्षर)। योजना अंशों की रैंकिंग आपके फ़ोन पर ही होती है।",
 "s3.title":"सूचना का उपयोग कैसे करते हैं",
 "s3.b1":"आपके सवालों के जवाब देना और आपकी पात्रता वाली सरकारी योजनाओं से मिलान करना।",
 "s3.b2":"नज़दीकी केंद्र दिखाना और रास्ते पूछने पर मैप्स खोलना।",
@@ -826,26 +833,28 @@ const HI = {
 "s3.b5":"समझना कि कौन-सी सुविधाएँ सबसे उपयोगी हैं और विफलताएँ ठीक करना।",
 "s3.closing":"हम डेटा बेचते नहीं, विज्ञापन दिखाते नहीं, मार्केटिंग प्रोफ़ाइल बनाते नहीं। कभी।",
 "s4.title":"अनुमतियाँ",
-"s4.intro":"ऐप तीन अनुमतियाँ माँगता है। हर एक आपकी चुनी सुविधा से जुड़ी है, और हर एक को मना किया जा सकता है।",
+"s4.intro":"ऐप माइक्रोफ़ोन, स्थान और नेटवर्क एक्सेस इस्तेमाल करता है। Android माइक्रोफ़ोन और स्थान के लिए आपकी अनुमति माँगता है; इंटरनेट एक्सेस के लिए ऐप चलते समय अलग अनुमति का संदेश नहीं आता।",
 "s4.p1t":"माइक्रोफ़ोन","s4.p1d":"सिर्फ़ वॉइस सत्र में ज़ोर से सवाल पूछते समय। मना करें तो टाइपिंग सामान्य रूप से चलती है।",
 "s4.p2t":"स्थान","s4.p2d":"सिर्फ़ नज़दीकी मदद और स्वास्थ्य रास्तों के लिए। मना करें तो स्थान हाथ से दर्ज कर सकते हैं।",
-"s4.p3t":"इंटरनेट व नेटवर्क स्थिति","s4.p3d":"वैकल्पिक अनुवाद मॉडल डाउनलोड, चालू होने पर क्लाउड जवाब, और कनेक्टिविटी जाँच के लिए। मुख्य योजना मिलान पूरी तरह ऑफ़लाइन चलता है।",
-"s4.note":"कोई भी अनुमति कभी बदलें: <code>Android Settings → Apps → Prabhaya → Permissions</code>.",
+"s4.p3t":"इंटरनेट व नेटवर्क स्थिति","s4.p3d":"वैकल्पिक अनुवाद मॉडल डाउनलोड करता है, कनेक्टिविटी जाँचता है, और इंटरनेट होने तथा सेवा कॉन्फ़िगर होने पर अपने आप क्लाउड सहायता माँगता है। नीचे बताई गई अलग सहमति के तहत डायग्नोस्टिक्स नेटवर्क इस्तेमाल करते हैं। मुख्य योजना मिलान ऑफ़लाइन चलता है; Android की स्पीच सेवाओं को नेटवर्क की ज़रूरत हो सकती है।",
+"s4.note":"माइक्रोफ़ोन या स्थान की अनुमतियाँ कभी भी बदलें: <code>Android Settings → Apps → Prabhaya → Permissions</code>।",
 "s5.title":"तृतीय-पक्ष सेवाएँ",
 "s5.intro":"कुछ सुविधाएँ भरोसेमंद प्रदाताओं पर निर्भर हैं। ऐसे में आपका डेटा उस प्रदाता की अपनी नीति के अनुसार संभाला जाता है:",
-"s5.t1d":"क्लाउड मोड चालू होने पर ही क्लाउड चैट जवाब और प्रश्न एम्बेडिंग। आपका सवाल और हाल की चैट का छोटा हिस्सा HTTPS से भेजा जाता है।",
+"s5.t1d":"क्लाउड चैट और प्रश्न एम्बेडिंग के लिए OpenAI एकमात्र AI प्रदाता है। इंटरनेट होने और सेवा कॉन्फ़िगर होने पर ऐप ऊपर बताया गया टेक्स्ट अपने आप प्रभया की डायग्नोस्टिक्स सेवा के ज़रिए भेजता है, सीधे OpenAI को नहीं। OpenAI अपनी API डेटा नीतियों के तहत इनपुट और आउटपुट रख सकता है; प्रॉक्सी द्वारा अनुरोध/जवाब की सामग्री न रखने का नियम यह नहीं दर्शाता कि OpenAI भी कुछ नहीं रखता।",
 "s5.t2d":"डिवाइस पर ही तेलुगु ↔ अंग्रेज़ी अनुवाद। मॉडल एक बार डाउनलोड होते हैं; फिर अनुवाद आपके फ़ोन पर ऑफ़लाइन चलता है।",
-"s5.t3d":"Android सिस्टम की स्पीच सेवाओं से वॉइस इनपुट और जवाब बोलकर सुनाना।",
+"s5.t3d":"वॉइस इनपुट और जवाब बोलकर सुनाने के लिए Android की सिस्टम स्पीच सेवाएँ इस्तेमाल होती हैं। आपकी इंस्टॉल की गई सेवा और सेटिंग्स के अनुसार ऑडियो या टेक्स्ट उस प्रदाता की नीति के तहत नेटवर्क पर प्रोसेस हो सकता है; इन सेवाओं के ऑफ़लाइन काम करने की गारंटी नहीं है।",
 "s5.t4d":"नज़दीकी खोज के लिए डिवाइस का स्थान — आपके डिवाइस पर ही प्रोसेस होता है।",
 "s5.t5d":"सिर्फ़ रास्ते के लिंक पर टैप करने पर खुलता है; आपका चुना स्थान Maps को दिया जाता है।",
 "s5.policy":"नीति",
-"s5.note":"<strong>आपकी स्वास्थ्य प्रविष्टियाँ और ऐप प्राथमिकताएँ इनमें से किसी सेवा को कभी नहीं भेजी जातीं।</strong>",
-"s6.title":"डायగ్నోస్టిक्स — विस्तार से",
+"s5.note":"<strong>ऐप आपके स्वास्थ्य ट्रैकर रिकॉर्ड अपने आप अपलोड नहीं करता।</strong> चैट में टाइप की गई या बोलकर दर्ज की गई स्वास्थ्य जानकारी चैट या एम्बेडिंग टेक्स्ट के रूप में प्रभया की डायग्नोस्टिक्स सेवा से OpenAI को भेजी जा सकती है। आपकी चुनी हुई भाषा भी AI अनुरोधों के साथ जाती है। ऐसी जानकारी दर्ज न करें जिसे आप इस तरह प्रोसेस नहीं करवाना चाहते।",
+"s6.title":"डायग्नोस्टिक्स — विस्तार से",
 "s6.p1":"सेटअप में जब आप शर्तें / गोपनीयता नीति स्वीकार करते हैं, तो ऐप जवाबों की गुणवत्ता सुधारने के लिए छद्मनामी उपयोग इवेंट हमारे रिसर्च सर्वर को भेजता है।",
-"s6.p2":"एक इवेंट में होता है: यादृच्छिक इंस्टॉलेशन ID (आपका नाम या नंबर नहीं), सेशन ID, इवेंट का प्रकार, आपकी भाषा, ऐप संस्करण, Android संस्करण, और संदेशों के लिए — एकतरफ़ा SHA-256 हैश व अक्षरों की संख्या। <strong>संदेश का टेक्स्ट कभी आपके फ़ोन से बाहर नहीं जाता।</strong>",
+"s6.p2":"एक इवेंट में होता है: यादृच्छिक इंस्टॉलेशन ID (आपका नाम या नंबर नहीं), सेशन ID, इवेंट का प्रकार, आपकी भाषा, ऐप संस्करण, Android संस्करण, और संदेशों के लिए — एकतरफ़ा SHA-256 हैश व अक्षरों की संख्या। <strong>डायग्नोस्टिक्स डेटा में मूल संदेश टेक्स्ट नहीं होता।</strong> यह ऑनलाइन AI अनुरोधों पर लागू नहीं होता: वे ऊपर बताया गया टेक्स्ट उसी डायग्नोस्टिक्स सेवा के ज़रिए OpenAI को भेजते हैं।",
 "s6.p3":"जर्नी इवेंट लगभग 18 महीने रखे जाते हैं और फिर हटा दिए जाते हैं; अनाम कुल आँकड़े ज़्यादा समय तक रखे जा सकते हैं। ऐप अनइंस्टॉल करने पर संग्रह रुक जाता है और फ़ोन की अनभेजी कतार हटा दी जाती है। सहमति वापस लेने या सर्वर पर मौजूद डेटा हटवाने के लिए नीचे संपर्क करें।",
+"s6.p4":"यह अवधि संग्रहीत छद्मनामी डायग्नोस्टिक्स पर लागू होती है, AI अनुरोधों या जवाबों की सामग्री पर नहीं। डायग्नोस्टिक्स की सहमति उपयोग इवेंट नियंत्रित करती है, अपने आप मिलने वाली ऑनलाइन सहायता नहीं; डायग्नोस्टिक्स रोकने से क्लाउड चैट बंद नहीं होती।",
 "s7.title":"भंडारण व सुरक्षा",
-"s7.p1":"ट्रैकर प्रविष्टियाँ, प्राथमिकताएँ और चैट इतिहास आपके फ़ोन के निजी ऐप स्टोरेज में रहते हैं। सभी नेटवर्क अनुरोध HTTPS इस्तेमाल करते हैं, आपकी जोड़ी गई keys ऐप के सुरक्षित key store में रहती हैं, और डायగ్నోస్టిक्स bearer token से भेजे जाते हैं। कोई व्यवस्था पूर्ण नहीं है — इसलिए हम जानबूझकर बहुत कम रखते हैं जो कभी उजागर हो सके।",
+"s7.p1":"ट्रैकर प्रविष्टियाँ, प्राथमिकताएँ और चैट इतिहास आपके फ़ोन के निजी ऐप स्टोरेज में संग्रहीत रहते हैं; ऑनलाइन अनुरोध ऊपर बताया गया टेक्स्ट HTTPS से भेजते हैं। OpenAI प्रदाता की कुंजी केवल प्रभया के सर्वर पर रहती है, ऐप में कभी नहीं। AI प्रॉक्सी के लिए ऐप अलग, सीमित ऐप एक्सेस टोकन इस्तेमाल करता है — यह आपकी अपनी API कुंजी नहीं, OpenAI की कुंजी नहीं, और व्यक्तिगत खाते का प्रमाणीकरण नहीं है। डायग्नोस्टिक्स के लिए अलग क्रेडेंशियल इस्तेमाल होता है।",
+"s7.p2":"प्रभया की AI प्रॉक्सी अनुरोधों, जवाबों और एम्बेडिंग को अस्थायी रूप से प्रोसेस करती है। वह इन्हें अपने डेटाबेस या डायग्नोस्टिक्स इवेंट में संग्रहीत नहीं करती, न ही अनुरोध/जवाब की सामग्री को एप्लिकेशन या एक्सेस लॉग में दर्ज करती है। संदेश सामग्री के बिना संचालन की स्थिति लॉग की जा सकती है। OpenAI की अपनी डेटा प्रबंधन और प्रतिधारण नीतियाँ लागू रहती हैं। कोई भी व्यवस्था पूर्ण सुरक्षा की गारंटी नहीं दे सकती।",
 "s8.title":"आपके अधिकार व विकल्प",
 "s8.intro":"हर डेटा पर नियंत्रण आपका रहता है:",
 "s8.r1t":"स्थानीय डेटा देखें व हटाएँ","s8.r1d":"फ़ोन पर मौजूद सब कुछ आपका है। Settings → Apps → Prabhaya → Storage → Clear storage से साफ़ करें, या ऐप अनइंस्टॉल कर दें।",
@@ -863,7 +872,7 @@ const HI = {
 "s11.btn":"GitHub issue खोलें",
 "s11.note":"कृपया संवेदनशील विवरण (स्वास्थ्य रिकॉर्ड, ID नंबर) सार्वजनिक issue में न डालें — निजी माध्यम के लिए हमसे वहीं पूछें।",
 "footer.top":"ऊपर जाएँ","footer.tag":"जागरूकता, आपकी भाषा में।",
-"footer.meta":"प्रभावी तिथि: 10 नवंबर 2026 · संस्करण 1.0",
+"footer.meta":"प्रभावी तिथि: 16 नवंबर 2026 · संस्करण 1.1",
 "footer.copy":"© 2026 प्रभया · तेलंगाना के समुदायों के लिए बनाया गया"
 };
 
