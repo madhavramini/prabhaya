@@ -284,7 +284,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
 <header class="nav" id="nav">
   <a class="brand" href="#top" aria-label="Prabhaya — back to top">
     <img src="assets/logo.png" alt="" width="38" height="38">
-    <span class="brand-name">Prabhaya</span>
+    <span class="brand-name" data-i18n="brand.name">Prabhaya</span>
   </a>
   <nav class="nav-links" aria-label="Sections">
     <a href="#features" data-i18n="nav.features">Features</a>
@@ -395,7 +395,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
       <p class="qr-caption" data-i18n="dl.scan">Scan with your phone's camera</p>
     </div>
     <div>
-      <span class="dl-meta"><svg class="ic" aria-hidden="true"><use href="#i-android"/></svg><span data-i18n="dl.meta">Version 0.1.5 · Android 7.1+ · Free, no ads</span></span>
+      <span class="dl-meta"><svg class="ic" aria-hidden="true"><use href="#i-android"/></svg><span data-i18n="dl.meta">Version 0.1.6 · Android 7.1+ · Free, no ads</span></span>
       <h2 class="display" data-i18n="dl.title">Get Prabhaya</h2>
       <p class="dl-desc" data-i18n="dl.desc">Download the APK directly — no Play Store needed. One file, installs in seconds.</p>
       <a class="dl-btn" href="https://github.com/madhavramini/prabhaya/releases/latest/download/prabhaya.apk"><svg class="ic" aria-hidden="true"><use href="#i-down"/></svg><span data-i18n="dl.btn">Download APK</span></a>
@@ -423,12 +423,12 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
   <div class="foot-inner">
     <div class="foot-brand">
       <img src="assets/logo.png" alt="" width="38" height="38">
-      <span class="brand-name display">Prabhaya</span>
+      <span class="brand-name display" data-i18n="brand.name">Prabhaya</span>
     </div>
     <div class="foot-links">
       <a href="people/" data-i18n="nav.people">People</a>
       <a href="privacy/" data-i18n="nav.privacy">Privacy</a>
-      <a href="https://github.com/madhavramini/prabhaya" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/madhavramini/prabhaya" target="_blank" rel="noopener" data-i18n="nav.github">GitHub</a>
     </div>
     <p class="foot-tag" data-i18n="footer.tag">Awareness, in your language.</p>
     <p class="foot-funding"><svg class="ic" aria-hidden="true"><use href="#i-bank"/></svg><span data-i18n="footer.funding">Funded by BITS Pilani, Hyderabad Campus under CDRF-II</span></p>
@@ -448,6 +448,7 @@ footer{background:var(--deep);color:#9FB6BA;margin-top:clamp(48px,7vh,84px);padd
 "use strict";
 /* ---------- translations (English is captured from the markup) ---------- */
 const TE = {
+"brand.name":"ప్రభయ","nav.github":"గిట్‌హబ్",
 "misc.skip":"ముఖ్య కంటెంట్‌కు వెళ్లండి",
 "nav.features":"ఫీచర్లు","nav.download":"డౌన్‌లోడ్","nav.privacy":"గోప్యత",
 "hero.eyebrow":"ఉచిత ఆండ్రాయిడ్ యాప్ · తెలంగాణ కోసం నిర్మించబడింది",
@@ -461,23 +462,24 @@ const TE = {
 "features.f3t":"ఋతుక్రమ సంరక్షణ","features.f3d":"సరళమైన, ప్రైవేట్ చక్ర ట్రాకింగ్ మరియు మార్గదర్శకత్వం. నమోదులు మీ ఫోన్ దాటవు.",
 "features.f4t":"పోషకాహార మార్గదర్శకత్వం","features.f4d":"తల్లులు, పిల్లల కోసం ఆచరణాత్మక ఆహార మరియు పోషకాహార సలహాలు — మీ భాషలో.",
 "features.f5t":"సమీప సహాయం","features.f5d":"మీ సమీపంలోని ఆసుపత్రులు, సేవలను కనుగొనండి — ఒక్క ట్యాప్‌తో మ్యాప్స్‌లో దారులు.",
-"features.f6t":"డబ్బు & భద్రత అవగాహన","features.f6d":"రుణాలు, పొదుపు, సైబర్ మోసాల అవగాహన — సరళమైన మాటల్లో.",
-"dl.meta":"వెర్షన్ 0.1.5 · ఆండ్రాయిడ్ 7.1+ · ఉచితం, ప్రకటనలు లేవు",
-"dl.title":"ప్రభయ పొందండి","dl.desc":"APKను నేరుగా డౌన్‌లోడ్ చేయండి — Play Store అవసరం లేదు. ఒకే ఫైల్, క్షణాల్లో ఇన్‌స్టాల్.",
-"dl.btn":"APK డౌన్‌లోడ్","dl.scan":"మీ ఫోన్ కెమెరాతో స్కాన్ చేయండి","dl.releases":"GitHubలో అన్ని రిలీజ్‌లు",
-"dl.note":"Play Store వెలుపల ఇన్‌స్టాల్ చేస్తున్నారా? తెలియని మూలాల నుండి ఇన్‌స్టాల్‌లను అనుమతించమని ఆండ్రాయిడ్ అడుగుతుంది — నేరుగా APK డౌన్‌లోడ్‌కు ఇది సాధారణం.",
-"pv.title":"మీ డేటా మీదే.","pv.text":"ప్రకటనలు లేవు, డేటా అమ్మడం లేదు, ఖాతా లేదు. యాప్ ఏమి తాకుతుందో సరళమైన మాటల్లో, మూడు భాషల్లో చదవండి.","pv.link":"గోప్యతా విధానం చదవండి",
+"features.f6t":"డబ్బు మరియు భద్రత అవగాహన","features.f6d":"రుణాలు, పొదుపు, సైబర్ మోసాల అవగాహన — సరళమైన మాటల్లో.",
+"dl.meta":"వెర్షన్ 0.1.6 · ఆండ్రాయిడ్ 7.1+ · ఉచితం, ప్రకటనలు లేవు",
+"dl.title":"ప్రభయ పొందండి","dl.desc":"ఏపీకేను నేరుగా డౌన్‌లోడ్ చేయండి — ప్లే స్టోర్ అవసరం లేదు. ఒకే ఫైల్, క్షణాల్లో ఇన్‌స్టాల్.",
+"dl.btn":"ఏపీకే డౌన్‌లోడ్","dl.scan":"మీ ఫోన్ కెమెరాతో స్కాన్ చేయండి","dl.releases":"గిట్‌హబ్లో అన్ని రిలీజ్‌లు",
+"dl.note":"ప్లే స్టోర్ వెలుపల ఇన్‌స్టాల్ చేస్తున్నారా? తెలియని మూలాల నుండి ఇన్‌స్టాల్‌లను అనుమతించమని ఆండ్రాయిడ్ అడుగుతుంది — నేరుగా ఏపీకే డౌన్‌లోడ్‌కు ఇది సాధారణం.",
+"pv.title":"మీ డేటా మీదే.","pv.text":"ప్రకటనలు లేవు, డేటా అమ్మడం లేదు, ఖాతా లేదు. యాప్ ఏమి తాకుతుందో సరళమైన మాటల్లో, మూడు భాషల్లో చదవండి.","pv.లింక్":"గోప్యతా విధానం చదవండి",
 "nav.project":"ప్రాజెక్ట్",
-"hero.funding":"BITS Pilani, Hyderabad Campus ప్రాజెక్ట్ · CDRF-II కింద నిధులు",
+"hero.funding":"బిట్స్ పిలానీ, హైదరాబాద్ క్యాంపస్ ప్రాజెక్ట్ · సీడీఆర్‌ఎఫ్-౨ కింద నిధులు",
 "proj.fundedLabel":"నిధులు అందించిన సంస్థ",
-"proj.under":"CDRF-II కింద",
+"proj.under":"సీడీఆర్‌ఎఫ్-౨ కింద",
 "proj.peopleBtn":"ప్రభయ వెనుక ఉన్న వ్యక్తులు",
 "nav.people":"వ్యక్తులు",
-"footer.funding":"BITS Pilani, Hyderabad Campus నుండి CDRF-II కింద నిధులు",
+"footer.funding":"బిట్స్ పిలానీ, హైదరాబాద్ క్యాంపస్ నుండి సీడీఆర్‌ఎఫ్-౨ కింద నిధులు",
 "footer.top":"పైకి","footer.tag":"అవగాహన — మీ భాషలో.","footer.copy":"© 2026 ప్రభయ · తెలంగాణ సముదాయాల కోసం నిర్మించబడింది"
 };
 
 const HI = {
+"brand.name":"प्रभया","nav.github":"गिटहब",
 "misc.skip":"मुख्य सामग्री पर जाएँ",
 "nav.features":"सुविधाएँ","nav.download":"डाउनलोड","nav.privacy":"गोपनीयता",
 "hero.eyebrow":"मुफ़्त Android ऐप · तेलंगाना के लिए बनाया गया",
@@ -492,7 +494,7 @@ const HI = {
 "features.f4t":"पोषण मार्गदर्शन","features.f4d":"माताओं और बच्चों के लिए व्यावहारिक आहार व पोषण सलाह — आपकी भाषा में।",
 "features.f5t":"नज़दीकी मदद","features.f5d":"नज़दीकी अस्पताल और सेवाएँ खोजें — एक टैप में Maps में रास्ते।",
 "features.f6t":"धन व सुरक्षा जागरूकता","features.f6d":"ऋण, बचत और साइबर धोखाधड़ी की जानकारी — सरल, स्पष्ट भाषा में।",
-"dl.meta":"संस्करण 0.1.5 · Android 7.1+ · मुफ़्त, कोई विज्ञापन नहीं",
+"dl.meta":"संस्करण 0.1.6 · Android 7.1+ · मुफ़्त, कोई विज्ञापन नहीं",
 "dl.title":"प्रभया पाएँ","dl.desc":"APK सीधे डाउनलोड करें — Play Store की ज़रूरत नहीं। एक फ़ाइल, सेकंडों में इंस्टॉल।",
 "dl.btn":"APK डाउनलोड","dl.scan":"अपने फ़ोन के कैमरे से स्कैन करें","dl.releases":"GitHub पर सभी रिलीज़",
 "dl.note":"Play Store के बाहर से इंस्टॉल कर रहे हैं? Android अज्ञात स्रोतों से इंस्टॉल की अनुमति माँगेगा — सीधे APK डाउनलोड के लिए यह सामान्य है।",
@@ -511,7 +513,7 @@ const HI = {
 const EN = {};
 document.querySelectorAll("[data-i18n]").forEach(el => { EN[el.dataset.i18n] = el.innerHTML; });
 const DICTS = { en: EN, te: TE, hi: HI };
-const TITLES = { en: "Prabhaya — Awareness, in your language", te: "Prabhaya — అవగాహన, మీ భాషలో", hi: "Prabhaya — जागरूकता, आपकी भाषा में" };
+const TITLES = { en: "Prabhaya — Awareness, in your language", te: "ప్రభయ — అవగాహన, మీ భాషలో", hi: "Prabhaya — जागरूकता, आपकी भाषा में" };
 
 function setLang(lang){
   if(!DICTS[lang]) lang = "en";
